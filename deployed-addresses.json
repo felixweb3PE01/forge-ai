@@ -1,0 +1,12 @@
+{
+  "network": "mantle_testnet",
+  "deployer": "0xd2123bB09437b0C260515F7a4D06A2EE2a5E0b68",
+  "timestamp": "2026-06-10T16:02:28.678Z",
+  "contracts": {
+    "talentRegistry": "0x870DcC88a1dCafca357D0635b77F07Df900CbeE9",
+    "decisionLog": "0x312320C074B4d5423334E468b834B559435d86a3",
+    "escrow": "0x651e333813c88357194319C404eE5B7D0A7D81B8",
+    "reputation": "0x185C130B3559C8b33492003378BD33b1c234c466",
+    "agentRegistry": "0xBE61Fbd302417ecfD27AAfe340D1Ee339b28c039"
+  }
+}

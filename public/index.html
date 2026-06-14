@@ -1,0 +1,2858 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Forge AI | The Operating System for Autonomous Hiring</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAsAC8DASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAACAAGBwQF/8QAMBAAAQIEAggFBAMAAAAAAAAAAQIDAAQFBgcREiExN0GDk7MUF1Vh0xMWIlEjcZH/xAAZAQADAQEBAAAAAAAAAAAAAAACAwYHAQX/xAAtEQABAgUDAAgHAAAAAAAAAAABAAIDBAURMQYSIQcTNUFRc7LBFlJhcpLw8f/aAAwDAQACEQMRAD8ALNJp83ValL06QZL0zMLCG0A5Zn++A940NGCV2KSCZ6jJJGwvOZj/ABuPGwP3o0fn9hyE9C3uIPCzjWOqJ6kzjIEtYAt3G4vkkeyPnkjdfqFF6zvxxPJG6/UKL1nfjjdK7VpKiU1yoVB36bKCBqGZUTsAHEx2oUFICgCARnrgd5Uodd1oNDyRY9+3w/qL96Yc3DatPTUJ7wkxKlQQpyWcKggnZmFJB1/uKfCdxw3XVfkd9uDFDGG4WkaQrMxV5F0aYtuDi3jjuB91dMD96NH5/YchPQYcD96NH5/YchPQuJlZ/wBI/akPyx6nLMrte+45+eYmF+BEigrkm55p1ppYQpP1H1K0ctn4pHv7xcrNn6vU6Smeq0pLypdObLbelmUcFHS2Z7QP1HNW7YTWLolKlOvaUlLMaPhhn/KvS0vy4FIyBy4kCLHAKYnZyC+WhwYY+v2+IGM2uVS8cN11Y5HfbgxQnccN11Y5HfbgxQ2Hhaj0cdlxPMPpavXs2tuW5c0jWm2g8ZZZJbJy0klJSoZ8DkTG1oxutYpGnTqyFZawGmiAepB9iQRaDlUNX01IVaI2LMtO4C1wbcZSD87rU9PrXRa+SJ53Wp6fWui18kHyJHOrC8n4Ao/yu/JavihinT7kttyi0mRm2kTCkl5yZCUkBKgoABJPEDXnwjKIkSCAAwqOl0qWpcDqJYWbe+b8/oX/2Q=="/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "surface-variant": "#353436",
+          "surface": "#131314",
+          "on-secondary": "#00363f",
+          "on-primary-container": "#007143",
+          "surface-container-highest": "#353436",
+          "on-background": "#e5e2e3",
+          "surface-container": "#201f20",
+          "primary-container": "#00ff9d",
+          "surface-bright": "#3a393a",
+          "secondary-container": "#00e0ff",
+          "secondary": "#b9f1ff",
+          "surface-tint": "#00e38b",
+          "inverse-primary": "#006d40",
+          "background": "#131314",
+          "on-primary": "#00391f",
+          "on-surface": "#e5e2e3",
+          "primary": "#f4fff3",
+          "on-surface-variant": "#b9cbbc",
+          "surface-container-high": "#2a2a2b",
+          "inverse-surface": "#e5e2e3",
+          "primary-fixed-dim": "#00e38b",
+          "surface-container-low": "#1c1b1c",
+          "outline-variant": "#3b4a3f",
+          "surface-dim": "#131314",
+          "primary-fixed": "#56ffa8",
+          "outline": "#849587",
+          "surface-container-lowest": "#0e0e0f",
+          "error": "#ffb4ab"
+        },
+        borderRadius: {
+          "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"
+        },
+        fontFamily: {
+          "headline-lg": ["Space Grotesk"], "label-mono": ["Space Mono"],
+          "label-sm": ["Inter"], "body-md": ["Inter"], "display-lg": ["Space Grotesk"]
+        },
+        fontSize: {
+          "headline-lg": ["32px", {lineHeight:"1.2",fontWeight:"600"}],
+          "label-mono": ["14px", {lineHeight:"1.4",letterSpacing:"0.05em",fontWeight:"500"}],
+          "label-sm": ["12px", {lineHeight:"1.2",fontWeight:"600"}],
+          "body-md": ["16px", {lineHeight:"1.6",fontWeight:"400"}],
+          "display-lg": ["48px", {lineHeight:"1.1",letterSpacing:"-0.02em",fontWeight:"700"}]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  :root { --bg-color: #08090A; --primary-glow: #00E38B; }
+  * { box-sizing: border-box; }
+  body { background-color: var(--bg-color); color: #e5e2e3; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+  h1, h2, h3, h4, .font-sora { font-family: 'Space Grotesk', sans-serif; font-style: normal !important; }
+  .font-label-mono, .forge-input, .skill-tag, .chain-entry, .step-dot { font-family: 'Space Mono', monospace !important; }
+
+  /* Remove all italic globally */
+  * { font-style: normal !important; }
+
+  /* Hero gradient text for the accent span */
+  .hero-accent {
+    background: linear-gradient(135deg, #00e38b 0%, #00c4f4 60%, #7b61ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-style: normal !important;
+  }
+
+  /* Sharper glass cards */
+  .glass-card { background: rgba(14,15,17,0.75); backdrop-filter: blur(16px); border: 1px solid rgba(0,227,139,0.08); }
+  .glow-primary { box-shadow: 0 0 24px rgba(0,227,139,0.25), 0 0 48px rgba(0,227,139,0.08); }
+
+  /* Richer background mesh */
+  .mesh-gradient {
+    background-image:
+      radial-gradient(ellipse 80% 50% at 20% -10%, hsla(158,100%,44%,0.07) 0, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 10%, hsla(200,100%,50%,0.05) 0, transparent 55%),
+      radial-gradient(ellipse 40% 30% at 50% 80%, hsla(260,100%,60%,0.03) 0, transparent 50%);
+  }
+
+  /* Grid dot pattern overlay on hero */
+  .hero-grid::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(0,227,139,0.12) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 80%);
+    pointer-events: none;
+  }
+
+  /* Nav active pill */
+  .nav-link { color:#849587; transition:color 0.2s; cursor:pointer; font-family:'Space Grotesk',sans-serif; font-weight:500; letter-spacing:0.01em; }
+  .nav-link:hover, .nav-link.active { color:#00e38b; }
+
+  @keyframes pulse-dot { 0%,100% { transform:scale(1); opacity:1; } 50% { transform:scale(1.5); opacity:0.5; } }
+  .pulse-green { animation: pulse-dot 2s infinite; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+  .fade-in { animation: fadeIn 0.4s ease forwards; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .spinner { animation: spin 0.8s linear infinite; }
+  #ambient-canvas { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; pointer-events:none; }
+  @media (prefers-reduced-motion: reduce) { #ambient-canvas { display:none; } .pulse-green { animation:none; } }
+
+  /* Modal */
+  .modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:1000; display:flex; align-items:center; justify-content:center; padding:16px; backdrop-filter:blur(6px); }
+  .modal-box { background:#0e0f11; border:1px solid rgba(0,227,139,0.12); border-radius:16px; width:100%; max-height:90vh; overflow-y:auto; position:relative; }
+
+  /* Form inputs */
+  .forge-input { background:#111214; border:1px solid #2a3330; border-radius:8px;  padding:10px 14px; font-size:14px; width:100%; transition:border-color 0.2s; outline:none; font-family:'Inter',sans-serif; }
+  .forge-input:focus { border-color:#00e38b; box-shadow: 0 0 0 2px rgba(0,227,139,0.08); }
+  .forge-input::placeholder { color:#4a5a4e; }
+  select.forge-input option { background:#111214; }
+
+  /* Tags */
+  .skill-tag { display:inline-flex; align-items:center; gap:6px; padding:4px 10px; background:#111214; border:1px solid rgba(0,227,139,0.2); border-radius:4px; font-size:11px; font-family:'Space Mono',monospace; letter-spacing:0.03em; color:#00e38b; }
+  .skill-tag .remove { cursor:pointer; color:#4a5a4e; }
+  .skill-tag .remove:hover { color:#ffb4ab; }
+
+  /* Tabs */
+  .tab-btn { padding:8px 20px; border-radius:6px; font-size:13px; font-weight:600; cursor:pointer; transition:all 0.2s; color:#849587; background:transparent; border:none; font-family:'Space Grotesk',sans-serif; letter-spacing:0.02em; }
+  .tab-btn.active { background:#1a2420; color:#00e38b; border: 1px solid rgba(0,227,139,0.2); }
+  .tab-btn:hover:not(.active) { color:#e5e2e3; }
+
+  /* Progress bar */
+  .progress-bar { height:6px; border-radius:3px; background:#2a2a2b; overflow:hidden; }
+  .progress-fill { height:100%; border-radius:3px; background:#00e38b; transition:width 0.6s ease; box-shadow:0 0 8px rgba(0,227,139,0.4); }
+
+  /* Step indicator */
+  .step-dot { width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; border:2px solid #3b4a3f; background:#1c1b1c; color:#849587; flex-shrink:0; }
+  .step-dot.active { border-color:#00e38b; color:#00e38b; background:rgba(0,227,139,0.1); }
+  .step-dot.done { border-color:#00e38b; background:#00e38b; color:#00391f; }
+  .step-line { flex:1; height:2px; background:#3b4a3f; }
+  .step-line.done { background:#00e38b; }
+
+  /* Card hover */
+  .hover-card { transition:border-color 0.2s, transform 0.2s; }
+  .hover-card:hover { border-color:rgba(0,227,139,0.4); transform:translateY(-2px); }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width:6px; height:6px; }
+  ::-webkit-scrollbar-track { background:#1c1b1c; }
+  ::-webkit-scrollbar-thumb { background:#3b4a3f; border-radius:3px; }
+  ::-webkit-scrollbar-thumb:hover { background:#00e38b55; }
+
+  /* Toast */
+  .toast { position:fixed; bottom:24px; right:24px; z-index:2000; background:#18181a; border:1px solid #3b4a3f; border-radius:10px; padding:14px 18px; font-size:13px; min-width:260px; box-shadow:0 4px 24px rgba(0,0,0,0.4); transform:translateY(80px); opacity:0; transition:all 0.3s ease; }
+  .toast.show { transform:translateY(0); opacity:1; }
+  .toast.success { border-left:3px solid #00e38b; }
+  .toast.error { border-left:3px solid #ffb4ab; }
+  .toast.info { border-left:3px solid #b9f1ff; }
+
+  /* Section visibility */
+  .page-section { display:none; }
+  .page-section.active { display:block; }
+
+  /* Tablet responsive fixes (641px – 1023px) */
+  @media (min-width: 641px) and (max-width: 1023px) {
+    /* Section horizontal padding */
+    section { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+    .max-w-7xl { padding-left: 1.5rem; padding-right: 1.5rem; }
+
+    /* Hero headline — comfortable mid-size */
+    h1.font-sora { font-size: clamp(2rem, 5vw, 3rem) !important; line-height: 1.15 !important; }
+
+    /* Hero subtitle text — slightly smaller */
+    .text-lg { font-size: 1rem; }
+
+    /* Agent demo card padding tightened */
+    .glass-card.rounded-2xl { padding: 1.25rem; }
+
+    /* Trust metrics: equal-width cells */
+    .grid.grid-cols-2.sm\\:grid-cols-4 > div { padding: 1.25rem; }
+    .grid.grid-cols-2.sm\\:grid-cols-4 .text-3xl { font-size: 1.5rem; }
+
+    /* Pipeline cards — breathing room */
+    .grid.grid-cols-2.md\\:grid-cols-3 { gap: 1rem; }
+    .grid.grid-cols-2.md\\:grid-cols-3 h4 { font-size: 0.8rem; }
+    .grid.grid-cols-2.md\\:grid-cols-3 p { font-size: 0.7rem; }
+
+    /* Budget/timeline grid stays 2-col */
+    .grid.grid-cols-2.gap-4 { grid-template-columns: repeat(2, 1fr); }
+
+    /* Chain log: slightly more padding */
+    .chain-entry { font-size: 10.5px; padding: 10px 0; }
+
+    /* Modal sizing for tablet */
+    .modal-box { max-width: 600px; }
+
+    /* CTA section text */
+    .font-sora.text-3xl { font-size: 1.75rem !important; }
+
+    /* Mantle infra: horizontal flow */
+    .flex.flex-col.md\\:flex-row { flex-direction: row; }
+
+    /* Decision log header stack on tablet */
+    #section-chain .flex.items-center.justify-between { flex-wrap: wrap; gap: 0.75rem; }
+  }
+
+  /* Truncate */
+  .truncate-2 { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+
+  /* Mobile responsive fixes */
+  @media (max-width: 640px) {
+    /* Prevent horizontal scroll from any overflow */
+    main, .page-section { overflow-x: hidden; }
+
+    /* Tighter section padding on mobile */
+    section { padding-left: 1rem !important; padding-right: 1rem !important; }
+
+    /* Hero headline scales down */
+    h1.font-sora { font-size: clamp(1.75rem, 8vw, 2.5rem) !important; }
+
+    /* Trust metrics: 2x2 grid on mobile */
+    .grid.grid-cols-2.lg\\:grid-cols-4 { grid-template-columns: repeat(2, 1fr); }
+
+    /* Pipeline steps: 2-col on small, single col fallback */
+    .grid.grid-cols-2.md\\:grid-cols-3.lg\\:grid-cols-6 { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+
+    /* Live agent demo: full width inputs */
+    .grid.grid-cols-2.gap-4 { grid-template-columns: 1fr; }
+
+    /* Modal: full screen on mobile */
+    .modal-box { border-radius: 12px 12px 0 0; position: fixed; bottom: 0; left: 0; right: 0; width: 100% !important; max-width: 100% !important; max-height: 92vh; margin: 0; }
+    .modal-overlay { align-items: flex-end; padding: 0; }
+
+    /* Contributor profile modal stats grid */
+    .grid.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+
+    /* Chain log entry text */
+    .chain-entry { font-size: 10px; }
+
+    /* Toast: full width bottom */
+    .toast { left: 12px; right: 12px; bottom: 16px; min-width: unset; }
+
+    /* Step indicator: smaller dots on mobile */
+    .step-dot { width: 26px; height: 26px; font-size: 10px; }
+
+    /* Onboarding / project creation grids */
+    .grid.grid-cols-2.gap-4 { grid-template-columns: 1fr !important; }
+
+    /* Agent bar full width */
+    #agent-bar { left: 0 !important; right: 0 !important; border-radius: 0 !important; }
+  }
+
+  @media (max-width: 480px) {
+    /* Extra small screens: even smaller hero */
+    h1.font-sora { font-size: clamp(1.5rem, 7vw, 2rem) !important; }
+    .text-display-lg { font-size: clamp(1.5rem, 7vw, 2rem) !important; }
+
+    /* Mantle infra arrows hidden on very small */
+    .rotate-90 { display: none; }
+  }
+
+  /* File drop zone */
+  .drop-zone { border:2px dashed #3b4a3f; border-radius:12px; padding:32px; text-align:center; cursor:pointer; transition:all 0.2s; }
+  .drop-zone:hover, .drop-zone.drag-over { border-color:#00e38b; background:rgba(0,227,139,0.04); }
+
+  /* Milestone item */
+  .milestone-item { border:1px solid #3b4a3f; border-radius:10px; padding:14px 16px; margin-bottom:8px; }
+  .milestone-item.completed { border-color:#00e38b44; background:rgba(0,227,139,0.04); }
+
+  /* Chain log entry */
+  .chain-entry { border-bottom:1px solid #3b4a3f22; padding:12px 0; font-family:'Space Mono',monospace; font-size:11px; }
+  .chain-entry:last-child { border-bottom:none; }
+
+  /* Score ring */
+  .score-ring { position:relative; display:inline-flex; align-items:center; justify-content:center; }
+  .score-ring svg { transform:rotate(-90deg); }
+  .score-ring .score-text { position:absolute; font-family:'Sora',sans-serif; font-weight:700; }
+
+  /* Typing cursor */
+  .typing::after { content:'|'; animation: pulse-dot 0.8s infinite; color:#00e38b; }
+
+  input[type="text"],input[type="number"],input[type="email"],
+  input[type="password"],textarea,select,.forge-input {
+    color: #f0f0f0 !important;
+    -webkit-text-fill-color: #f0f0f0 !important;
+    background: #111214 !important;
+  }
+
+  /* ── INPUT FIX ── */
+  .forge-input,input[type=text],input[type=email],
+  input[type=number],input[type=password],textarea,select{
+    color:#f0f0f0!important;
+    -webkit-text-fill-color:#f0f0f0!important;
+    background:#111214!important;
+  }
+</style>
+</head>
+<body>
+<canvas id="ambient-canvas"></canvas>
+
+<!-- Toast notification -->
+<div id="toast" class="toast"></div>
+
+<!-- ============================================================
+     NAVIGATION
+============================================================ -->
+<nav class="bg-surface/90 backdrop-blur-xl border-b border-outline-variant w-full h-16 sticky top-0 z-50 flex justify-between items-center px-4 sm:px-6 overflow-visible">
+  <div class="flex items-center gap-3 md:gap-4 min-w-0">
+    <div class="flex items-center gap-2 cursor-pointer shrink-0" onclick="showSection('home')">
+      <div class="w-8 h-8 rounded-lg bg-primary-fixed-dim flex items-center justify-center">
+        <span class="material-symbols-outlined text-on-primary text-[18px]">bolt</span>
+      </div>
+      <span class="font-sora font-bold text-on-surface">Forge AI</span>
+    </div>
+    <div class="hidden md:flex items-center gap-0.5">
+      <button onclick="showSection('home')" id="nav-home" class="nav-link active tab-btn !px-3 !text-xs lg:!text-sm lg:!px-5">Dashboard</button>
+      <button onclick="showSection('projects')" id="nav-projects" class="nav-link tab-btn !px-3 !text-xs lg:!text-sm lg:!px-5">Projects</button>
+      <button onclick="showSection('contributors')" id="nav-contributors" class="nav-link tab-btn !px-3 !text-xs lg:!text-sm lg:!px-5">Contributors</button>
+      <button onclick="showSection('agents')" id="nav-agents" class="nav-link tab-btn !px-3 !text-xs lg:!text-sm lg:!px-5">Agents</button>
+      <button onclick="showSection('chain')" id="nav-chain" class="nav-link tab-btn !px-3 !text-xs lg:!text-sm lg:!px-5">Log</button>
+    </div>
+  </div>
+  <div class="flex items-center gap-2 shrink-0">
+    <div class="hidden xl:flex items-center bg-surface-container-low px-3 py-2 border border-outline-variant rounded-lg">
+      <span class="material-symbols-outlined text-on-surface-variant text-[18px] mr-2">search</span>
+      <input id="global-search" class="bg-transparent border-none focus:ring-0 text-sm placeholder:text-on-surface-variant w-40 outline-none text-on-surface" placeholder="Search contributors..." type="text" oninput="handleSearch(this.value)"/>
+    </div>
+    <button onclick="injectAgentBar()" title="Ask Forge AI Agent" class="hidden md:flex border border-primary-fixed-dim/40 text-primary-fixed-dim px-2.5 py-1.5 rounded-lg font-bold hover:scale-[0.98] transition-transform text-xs items-center gap-1.5">
+      <span class="w-1.5 h-1.5 rounded-full bg-primary-fixed-dim pulse-green"></span><span class="hidden lg:inline">AGENT</span><span class="lg:hidden">AI</span>
+    </button>
+    <button id="wallet-btn" onclick="toggleWallet()" class="hidden md:block bg-primary-fixed-dim text-on-primary px-3 py-1.5 rounded-lg font-bold hover:scale-[0.98] transition-transform text-xs lg:text-sm lg:px-4 lg:py-2">
+      Connect Wallet
+    </button>
+    <!-- Mobile/tablet hamburger (hidden on md+) -->
+    <button id="hamburger-btn" class="md:hidden w-9 h-9 flex items-center justify-center rounded-lg hover:bg-surface-bright transition-colors" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+      <svg id="hamburger-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line id="hb-top" x1="3" y1="5.5" x2="19" y2="5.5" stroke="#b9cbbc" stroke-width="1.8" stroke-linecap="round" style="transform-origin:11px 5.5px;transition:transform 0.35s cubic-bezier(0.4,0,0.2,1),opacity 0.2s"/>
+        <line id="hb-mid" x1="3" y1="11" x2="19" y2="11" stroke="#b9cbbc" stroke-width="1.8" stroke-linecap="round" style="transform-origin:11px 11px;transition:transform 0.35s cubic-bezier(0.4,0,0.2,1),opacity 0.2s"/>
+        <line id="hb-bot" x1="3" y1="16.5" x2="19" y2="16.5" stroke="#b9cbbc" stroke-width="1.8" stroke-linecap="round" style="transform-origin:11px 16.5px;transition:transform 0.35s cubic-bezier(0.4,0,0.2,1),opacity 0.2s"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div id="mobile-menu" class="fixed top-16 left-0 right-0 bg-surface-container border-b border-outline-variant z-40 p-4 flex flex-col gap-1 overflow-hidden" style="max-height:0;opacity:0;pointer-events:none;transition:max-height 0.38s cubic-bezier(0.4,0,0.2,1),opacity 0.28s ease;">
+  <button onclick="showSection('home');toggleMobileMenu()" class="nav-link text-left py-3 px-4 rounded-lg hover:bg-surface-bright text-sm font-semibold flex items-center gap-3"><span class="material-symbols-outlined text-[18px]">dashboard</span>Dashboard</button>
+  <button onclick="showSection('projects');toggleMobileMenu()" class="nav-link text-left py-3 px-4 rounded-lg hover:bg-surface-bright text-sm font-semibold flex items-center gap-3"><span class="material-symbols-outlined text-[18px]">folder</span>Projects</button>
+  <button onclick="showSection('contributors');toggleMobileMenu()" class="nav-link text-left py-3 px-4 rounded-lg hover:bg-surface-bright text-sm font-semibold flex items-center gap-3"><span class="material-symbols-outlined text-[18px]">group</span>Contributors</button>
+  <button onclick="showSection('agents');toggleMobileMenu()" class="nav-link text-left py-3 px-4 rounded-lg hover:bg-surface-bright text-sm font-semibold flex items-center gap-3"><span class="material-symbols-outlined text-[18px]">smart_toy</span>Agents</button>
+  <button onclick="showSection('chain');toggleMobileMenu()" class="nav-link text-left py-3 px-4 rounded-lg hover:bg-surface-bright text-sm font-semibold flex items-center gap-3"><span class="material-symbols-outlined text-[18px]">receipt_long</span>Decision Log</button>
+  <div class="border-t border-outline-variant mt-2 pt-3 flex gap-2 flex-wrap">
+    <button onclick="injectAgentBar();toggleMobileMenu()" class="border border-primary-fixed-dim/40 text-primary-fixed-dim px-3 py-2 rounded-lg font-bold text-xs flex items-center gap-1.5 flex-1 justify-center"><span class="w-1.5 h-1.5 rounded-full bg-primary-fixed-dim pulse-green"></span>AGENT</button>
+    <button id="mobile-wallet-btn" onclick="toggleWallet();toggleMobileMenu()" class="bg-primary-fixed-dim text-on-primary px-3 py-2 rounded-lg font-bold text-xs flex-1 justify-center flex items-center">Connect Wallet</button>
+  </div>
+</div>
+
+<main>
+
+<!-- ============================================================
+     HOME / DASHBOARD
+============================================================ -->
+<div id="section-home" class="page-section active mesh-gradient">
+
+  <!-- Hero -->
+  <section class="relative pt-24 pb-20 px-6 max-w-7xl mx-auto text-center hero-grid overflow-hidden">
+    <!-- Top eyebrow badge -->
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-surface-container-high border border-primary-fixed-dim/20 rounded-full mb-8">
+      <span class="w-2 h-2 rounded-full bg-primary-fixed-dim pulse-green"></span>
+      <span class="font-label-mono text-xs uppercase tracking-[0.12em] text-on-surface-variant">Powered by RealClaw + Mantle Network</span>
+    </div>
+    <!-- Main headline -->
+    <h1 class="font-sora font-bold text-on-surface mb-6 max-w-5xl mx-auto tracking-tight" style="font-size:clamp(2.8rem,7vw,5.5rem);line-height:1.04;letter-spacing:-0.03em;">
+      The Operating System<br/>for <span style="color:#00e38b;">Autonomous Hiring</span>
+    </h1>
+    <!-- Subheadline -->
+    <p class="text-base sm:text-lg text-on-surface-variant max-w-2xl mx-auto mb-10 leading-relaxed">
+      Deploy autonomous agents to discover, verify, and hire technical talent on-chain.<br class="hidden sm:block"/> Every decision logged. Every payment secured.
+    </p>
+    <!-- CTAs -->
+    <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
+      <button onclick="openCreateProject()" class="bg-primary-fixed-dim text-on-primary px-8 py-3.5 rounded-xl font-bold text-sm tracking-wide glow-primary hover:translate-y-[-2px] transition-all uppercase">
+        Post a Project
+      </button>
+      <button onclick="openOnboarding()" class="border border-outline-variant text-on-surface px-8 py-3.5 rounded-xl font-bold text-sm tracking-wide hover:bg-surface-bright hover:border-primary-fixed-dim/30 transition-all uppercase">
+        Join as Contributor
+      </button>
+    </div>
+  </section>
+
+  <!-- Trust Metrics -->
+  <section class="px-6 max-w-7xl mx-auto mb-16">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-px bg-outline-variant/20 rounded-2xl overflow-hidden glass-card">
+      <div class="bg-surface/40 p-6 flex flex-col items-center">
+        <span class="text-primary-fixed-dim font-sora font-bold text-3xl mb-1" id="metric-accuracy">94.2%</span>
+        <span class="text-xs font-label-mono text-on-surface-variant uppercase tracking-widest">Match Accuracy</span>
+      </div>
+      <div class="bg-surface/40 p-6 flex flex-col items-center">
+        <span class="text-primary-fixed-dim font-sora font-bold text-3xl mb-1" id="metric-recs">2,431</span>
+        <span class="text-xs font-label-mono text-on-surface-variant uppercase tracking-widest">Successful Recs</span>
+      </div>
+      <div class="bg-surface/40 p-6 flex flex-col items-center">
+        <span class="text-primary-fixed-dim font-sora font-bold text-3xl mb-1">$412K</span>
+        <span class="text-xs font-label-mono text-on-surface-variant uppercase tracking-widest">Escrow Protected</span>
+      </div>
+      <div class="bg-surface/40 p-6 flex flex-col items-center">
+        <span class="text-primary-fixed-dim font-sora font-bold text-3xl mb-1">4.8/5</span>
+        <span class="text-xs font-label-mono text-on-surface-variant uppercase tracking-widest">Agent Reputation</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pipeline steps -->
+  <section class="py-12 px-6 max-w-7xl mx-auto">
+    <div class="mb-10 flex items-center gap-4">
+      <div>
+        <span class="text-[10px] font-label-mono text-primary-fixed-dim uppercase tracking-[0.18em] mb-1 block">Protocol Flow</span>
+        <h2 class="font-sora font-bold text-2xl text-on-surface tracking-tight">The Autonomous Pipeline</h2>
+      </div>
+      <div class="flex-1 h-px bg-gradient-to-r from-primary-fixed-dim/30 to-transparent"></div>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-5 md:gap-6">
+      <div class="group cursor-pointer" onclick="showSection('projects');openCreateProject()">
+        <div class="w-10 h-10 rounded-lg bg-surface-container-high border border-outline-variant flex items-center justify-center mb-4 group-hover:border-primary-fixed-dim transition-colors">
+          <span class="text-on-surface font-bold text-sm">01</span>
+        </div>
+        <h4 class="font-sora font-semibold text-sm mb-1">Create Project</h4>
+        <p class="text-xs text-on-surface-variant">Define scope and requirements on-chain.</p>
+      </div>
+      <div class="group">
+        <div class="w-10 h-10 rounded-lg bg-surface-container-high border border-outline-variant flex items-center justify-center mb-4 group-hover:border-primary-fixed-dim transition-colors">
+          <span class="text-on-surface font-bold text-sm">02</span>
+        </div>
+        <h4 class="font-sora font-semibold text-sm mb-1">Agent Evaluates</h4>
+        <p class="text-xs text-on-surface-variant">AI parses technical depth and history.</p>
+      </div>
+      <div class="group">
+        <div class="w-10 h-10 rounded-lg bg-surface-container-high border border-outline-variant flex items-center justify-center mb-4 group-hover:border-primary-fixed-dim transition-colors">
+          <span class="text-on-surface font-bold text-sm">03</span>
+        </div>
+        <h4 class="font-sora font-semibold text-sm mb-1">Recs Generated</h4>
+        <p class="text-xs text-on-surface-variant">Top contributors ranked by merit.</p>
+      </div>
+      <div class="group">
+        <div class="w-10 h-10 rounded-lg bg-surface-container-high border border-outline-variant flex items-center justify-center mb-4 group-hover:border-primary-fixed-dim transition-colors">
+          <span class="text-on-surface font-bold text-sm">04</span>
+        </div>
+        <h4 class="font-sora font-semibold text-sm mb-1">Escrow Secured</h4>
+        <p class="text-xs text-on-surface-variant">Mantle smart contracts hold funds.</p>
+      </div>
+      <div class="group">
+        <div class="w-10 h-10 rounded-lg bg-surface-container-high border border-outline-variant flex items-center justify-center mb-4 group-hover:border-primary-fixed-dim transition-colors">
+          <span class="text-on-surface font-bold text-sm">05</span>
+        </div>
+        <h4 class="font-sora font-semibold text-sm mb-1">Project Delivered</h4>
+        <p class="text-xs text-on-surface-variant">Milestones verified instantly.</p>
+      </div>
+      <div class="group">
+        <div class="w-10 h-10 rounded-lg bg-surface-container-high border border-outline-variant flex items-center justify-center mb-4 group-hover:border-primary-fixed-dim transition-colors">
+          <span class="text-on-surface font-bold text-sm">06</span>
+        </div>
+        <h4 class="font-sora font-semibold text-sm mb-1">Rep Updated</h4>
+        <p class="text-xs text-on-surface-variant">All parties receive updated scores.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Agent Demo -->
+  <section class="py-16 px-6 max-w-7xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="text-[10px] font-label-mono text-primary-fixed-dim uppercase tracking-[0.18em] mb-2 block">Try It Live</span>
+      <h2 class="font-sora font-bold text-2xl md:text-3xl mb-3 tracking-tight">Live Recommendation Engine</h2>
+      <p class="text-on-surface-variant text-sm">Enter project requirements and watch the agent evaluate contributors in real time.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10 items-start">
+      <!-- Project input -->
+      <div class="glass-card rounded-2xl p-6 lg:p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="material-symbols-outlined text-primary-fixed-dim">assignment</span>
+          <h3 class="font-sora font-semibold text-lg uppercase tracking-wider">Project Request</h3>
+        </div>
+        <div class="space-y-4">
+          <div>
+            <label class="text-xs font-label-mono text-on-surface-variant block mb-2">OBJECTIVE</label>
+            <textarea id="demo-objective" class="forge-input" rows="3" placeholder="e.g. Senior UI Designer for a DeFi dashboard on Mantle..."></textarea>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="text-xs font-label-mono text-on-surface-variant block mb-2">BUDGET (USD)</label>
+              <input id="demo-budget" type="text" class="forge-input" placeholder="$3,000" value="$3,000"/>
+            </div>
+            <div>
+              <label class="text-xs font-label-mono text-on-surface-variant block mb-2">TIMELINE</label>
+              <input id="demo-timeline" type="text" class="forge-input" placeholder="3 Weeks" value="3 Weeks"/>
+            </div>
+          </div>
+          <div>
+            <label class="text-xs font-label-mono text-on-surface-variant block mb-2">REQUIRED SKILLS (press Enter)</label>
+            <input id="demo-skill-input" type="text" class="forge-input" placeholder="e.g. Figma Expert" onkeydown="addDemoSkill(event)"/>
+            <div id="demo-skills" class="flex flex-wrap gap-2 mt-3">
+              <span class="skill-tag">Figma Expert <span class="remove" onclick="removeDemoSkill(this)">×</span></span>
+              <span class="skill-tag">Web3 UX <span class="remove" onclick="removeDemoSkill(this)">×</span></span>
+              <span class="skill-tag">React/Tailwind <span class="remove" onclick="removeDemoSkill(this)">×</span></span>
+            </div>
+          </div>
+          <button onclick="runDemoEvaluation()" class="w-full bg-primary-fixed-dim text-on-primary py-3 rounded-xl font-bold hover:scale-[0.99] transition-transform mt-2">
+            Run Agent Evaluation
+          </button>
+        </div>
+      </div>
+
+      <!-- Agent output -->
+      <div class="space-y-6" id="agent-output">
+        <!-- Agent status -->
+        <div class="glass-card rounded-2xl p-5 border-l-4 border-l-primary-fixed-dim flex items-center justify-between">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-full bg-primary-fixed-dim/10 flex items-center justify-center border border-primary-fixed-dim/30">
+              <span class="material-symbols-outlined text-primary-fixed-dim text-xl">smart_toy</span>
+            </div>
+            <div>
+              <h4 class="font-bold text-sm">Forge Hiring Agent #01 — ATLAS</h4>
+              <div class="flex items-center gap-2 mt-0.5">
+                <span class="w-2 h-2 rounded-full bg-primary-fixed-dim pulse-green"></span>
+                <span id="agent-status-text" class="text-xs font-label-mono text-on-surface-variant">Awaiting evaluation request...</span>
+              </div>
+            </div>
+          </div>
+          <span class="text-xs font-label-mono text-on-surface-variant">V4.2.1</span>
+        </div>
+
+        <!-- Result card (initially empty state) -->
+        <div id="demo-result" class="glass-card rounded-2xl p-8 border border-outline-variant">
+          <div class="text-center py-8 text-on-surface-variant">
+            <span class="material-symbols-outlined text-5xl mb-4 block opacity-30">manage_search</span>
+            <p class="text-sm">Run an evaluation to see agent recommendations here.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features grid -->
+  <section class="py-12 px-6 max-w-7xl mx-auto">
+    <div class="text-center mb-10">
+      <span class="text-[10px] font-label-mono text-primary-fixed-dim uppercase tracking-[0.18em] mb-2 block">Core Protocol</span>
+      <h2 class="font-sora font-bold text-2xl tracking-tight">Built for the Sovereign Talent Economy</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="glass-card p-8 rounded-2xl hover-card">
+        <span class="material-symbols-outlined text-3xl text-primary-fixed-dim mb-4 block">shield_person</span>
+        <h3 class="text-xl font-bold mb-3">Zero-Knowledge Vetting</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed">Verify skills and income history without revealing your identity or private repositories. Privacy is default, not a feature.</p>
+      </div>
+      <div class="glass-card p-8 rounded-2xl hover-card">
+        <span class="material-symbols-outlined text-3xl text-primary-fixed-dim mb-4 block">dynamic_form</span>
+        <h3 class="text-xl font-bold mb-3">Programmable Escrow</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed">Funds release automatically on milestone approval or agent-verified code merge events. No more invoice chasing.</p>
+      </div>
+      <div class="glass-card p-8 rounded-2xl hover-card">
+        <span class="material-symbols-outlined text-3xl text-primary-fixed-dim mb-4 block">hub</span>
+        <h3 class="text-xl font-bold mb-3">Decentralized Registry</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed">No single company owns your resume. Your reputation is an NFT you own and can port to any compatible protocol.</p>
+      </div>
+      <div class="glass-card p-8 rounded-2xl hover-card">
+        <span class="material-symbols-outlined text-3xl text-primary-fixed-dim mb-4 block">token</span>
+        <h3 class="text-xl font-bold mb-3">Native Merit Incentives</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed">Earn FORGE tokens for accurate peer reviews and consistent delivery. The system rewards excellence.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mantle Infrastructure -->
+  <section class="py-16 px-6 max-w-5xl mx-auto text-center">
+    <h2 class="font-label-mono text-sm uppercase tracking-[0.2em] text-on-surface-variant mb-10">Mantle Protocol Infrastructure</h2>
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex-1 w-full bg-surface-container-high border border-outline-variant p-5 rounded-xl">
+        <div class="text-xs font-label-mono text-primary-fixed-dim mb-1">LAYER 01</div>
+        <h5 class="font-bold text-sm">Talent Registry</h5>
+        <p class="text-[11px] text-on-surface-variant mt-1">ZK-Identity Vaults</p>
+      </div>
+      <span class="material-symbols-outlined text-outline rotate-90 md:rotate-0">arrow_forward</span>
+      <div class="flex-1 w-full bg-surface-container-high border border-outline-variant p-5 rounded-xl">
+        <div class="text-xs font-label-mono text-primary-fixed-dim mb-1">LAYER 02</div>
+        <h5 class="font-bold text-sm">Decision Log</h5>
+        <p class="text-[11px] text-on-surface-variant mt-1">Agent Execution Proofs</p>
+      </div>
+      <span class="material-symbols-outlined text-outline rotate-90 md:rotate-0">arrow_forward</span>
+      <div class="flex-1 w-full bg-surface-container-high border border-outline-variant p-5 rounded-xl">
+        <div class="text-xs font-label-mono text-primary-fixed-dim mb-1">LAYER 03</div>
+        <h5 class="font-bold text-sm">Escrow Contracts</h5>
+        <p class="text-[11px] text-on-surface-variant mt-1">Milestone Triggers</p>
+      </div>
+      <span class="material-symbols-outlined text-outline rotate-90 md:rotate-0">arrow_forward</span>
+      <div class="flex-1 w-full bg-surface-container-high border border-primary-fixed-dim/40 p-5 rounded-xl shadow-[0_0_12px_rgba(0,227,139,0.1)]">
+        <div class="text-xs font-label-mono text-primary-fixed-dim mb-1">LAYER 04</div>
+        <h5 class="font-bold text-sm">Reputation Registry</h5>
+        <p class="text-[11px] text-on-surface-variant mt-1">Final Settlement</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 px-6 text-center">
+    <span class="text-[10px] font-label-mono text-primary-fixed-dim uppercase tracking-[0.18em] mb-4 block">Get Started</span>
+    <h2 class="font-sora font-bold text-3xl md:text-4xl mb-4 tracking-tight">Build Teams at Agent Speed</h2>
+    <p class="text-on-surface-variant text-base mb-10 max-w-xl mx-auto">Join the protocol redefining the relationship between talent and capital.</p>
+    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+      <button onclick="openCreateProject()" class="bg-primary-fixed-dim text-on-primary px-10 py-4 rounded-xl font-bold text-sm tracking-wide uppercase glow-primary hover:scale-[1.02] transition-transform">Get Started</button>
+      <button onclick="showSection('agents')" class="border border-outline-variant text-on-surface px-10 py-4 rounded-xl font-bold text-sm tracking-wide uppercase hover:bg-surface-bright hover:border-primary-fixed-dim/30 transition-all">Explore Agents</button>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================
+     PROJECTS
+============================================================ -->
+<div id="section-projects" class="page-section">
+  <div class="max-w-7xl mx-auto px-6 py-10">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+      <div>
+        <h2 class="font-sora font-bold text-2xl text-on-surface">Projects</h2>
+        <p class="text-sm text-on-surface-variant mt-1">Manage active, pending, and completed projects.</p>
+      </div>
+      <button onclick="openCreateProject()" class="bg-primary-fixed-dim text-on-primary px-5 py-2.5 rounded-lg font-bold text-sm glow-primary hover:scale-[0.98] transition-transform self-start sm:self-auto">
+        + New Project
+      </button>
+    </div>
+
+    <!-- Filters -->
+    <div class="flex gap-2 mb-6 flex-wrap">
+      <button onclick="filterProjects('all')" id="pfilter-all" class="tab-btn active">All</button>
+      <button onclick="filterProjects('open')" id="pfilter-open" class="tab-btn">Open</button>
+      <button onclick="filterProjects('active')" id="pfilter-active" class="tab-btn">Active</button>
+      <button onclick="filterProjects('completed')" id="pfilter-completed" class="tab-btn">Completed</button>
+    </div>
+
+    <!-- Projects grid -->
+    <div id="projects-grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+      <!-- Rendered by JS -->
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     CONTRIBUTORS
+============================================================ -->
+<div id="section-contributors" class="page-section">
+  <div class="max-w-7xl mx-auto px-6 py-10">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+      <div>
+        <h2 class="font-sora font-bold text-2xl text-on-surface">Contributors</h2>
+        <p class="text-sm text-on-surface-variant mt-1">Browse AI-verified talent profiles.</p>
+      </div>
+      <button onclick="openOnboarding()" class="border border-outline-variant text-on-surface px-5 py-2.5 rounded-lg font-bold text-sm hover:bg-surface-bright transition-all self-start sm:self-auto">
+        + Join as Contributor
+      </button>
+    </div>
+
+    <!-- Search & filters -->
+    <div class="flex flex-col sm:flex-row gap-3 mb-6">
+      <div class="flex items-center bg-surface-container-low px-3 py-2 border border-outline-variant rounded-lg flex-1">
+        <span class="material-symbols-outlined text-on-surface-variant text-[18px] mr-2">search</span>
+        <input id="contributor-search" type="text" class="bg-transparent border-none focus:ring-0 text-sm placeholder:text-on-surface-variant outline-none text-on-surface w-full" placeholder="Search by skill, name, specialization..." oninput="filterContributors()"/>
+      </div>
+      <select id="skill-filter" class="forge-input sm:w-48" onchange="filterContributors()">
+        <option value="">All Skills</option>
+        <option>Solidity</option>
+        <option>React</option>
+        <option>Figma</option>
+        <option>Rust</option>
+        <option>Python</option>
+        <option>Smart Contracts</option>
+        <option>ZK Proofs</option>
+      </select>
+    </div>
+
+    <div id="contributors-grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+      <!-- Rendered by JS -->
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     AGENTS
+============================================================ -->
+<div id="section-agents" class="page-section">
+  <div class="max-w-7xl mx-auto px-6 py-10">
+    <div class="mb-8">
+      <h2 class="font-sora font-bold text-2xl text-on-surface">Agent Registry</h2>
+      <p class="text-sm text-on-surface-variant mt-1">All hiring agents with verifiable on-chain reputation.</p>
+    </div>
+
+    <div id="agents-grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+      <!-- Rendered by JS -->
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     DECISION LOG
+============================================================ -->
+<div id="section-chain" class="page-section">
+  <div class="max-w-5xl mx-auto px-6 py-10">
+    <div class="flex items-center justify-between mb-8">
+      <div>
+        <h2 class="font-sora font-bold text-2xl text-on-surface">On-Chain Decision Log</h2>
+        <p class="text-sm text-on-surface-variant mt-1">Every agent recommendation recorded immutably on Mantle.</p>
+      </div>
+      <div class="flex items-center gap-2 px-3 py-1.5 bg-surface-container-high border border-outline-variant rounded-full">
+        <span class="w-2 h-2 rounded-full bg-primary-fixed-dim pulse-green"></span>
+        <span class="text-xs font-label-mono text-on-surface-variant">LIVE</span>
+      </div>
+    </div>
+
+    <div class="glass-card rounded-2xl p-6">
+      <div class="flex items-center gap-3 mb-6 pb-4 border-b border-outline-variant">
+        <span class="material-symbols-outlined text-primary-fixed-dim">database</span>
+        <span class="font-label-mono text-sm text-on-surface-variant">MANTLE TESTNET — BLOCK HEIGHT: <span id="block-height" class="text-on-surface">4,821,033</span></span>
+      </div>
+      <div id="chain-log" class="space-y-0">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<!-- Footer -->
+<footer class="border-t border-outline-variant py-8 px-6 mt-8" style="background:#090c0b;">
+  <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 rounded-lg bg-primary-fixed-dim flex items-center justify-center">
+        <span class="material-symbols-outlined text-on-primary text-[16px]">bolt</span>
+      </div>
+      <span class="font-sora font-bold text-sm">Forge <span class="text-primary-fixed-dim">AI</span></span>
+    </div>
+    <p class="text-xs text-on-surface-variant">Empowering the future of autonomous hiring on Mantle.</p>
+    <div class="flex items-center gap-4">
+      <a href="https://x.com/forgeai0x" target="_blank" class="text-on-surface-variant hover:text-primary-fixed-dim transition-colors text-sm flex items-center gap-1.5">
+        <span class="material-symbols-outlined text-[16px]">share</span> X / Twitter
+      </a>
+      <span class="text-xs text-on-surface-variant">© 2024 Forge AI Protocol</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     MODALS
+============================================================ -->
+
+<!-- Create Project Modal -->
+<div id="modal-create-project" class="modal-overlay hidden" onclick="closeModalOutside(event,'modal-create-project')">
+  <div class="modal-box max-w-2xl p-8">
+    <!-- Step indicator -->
+    <div class="flex items-center gap-2 mb-8">
+      <div class="step-dot active" id="pstep-1">1</div>
+      <div class="step-line" id="pline-1"></div>
+      <div class="step-dot" id="pstep-2">2</div>
+      <div class="step-line" id="pline-2"></div>
+      <div class="step-dot" id="pstep-3">3</div>
+      <div class="step-line" id="pline-3"></div>
+      <div class="step-dot" id="pstep-4">4</div>
+    </div>
+    <div id="project-step-content"></div>
+  </div>
+</div>
+
+<!-- Contributor Onboarding Modal -->
+<div id="modal-onboarding" class="modal-overlay hidden" onclick="closeModalOutside(event,'modal-onboarding')">
+  <div class="modal-box max-w-2xl p-8">
+    <div class="flex items-center gap-2 mb-8">
+      <div class="step-dot active" id="ostep-1">1</div>
+      <div class="step-line" id="oline-1"></div>
+      <div class="step-dot" id="ostep-2">2</div>
+      <div class="step-line" id="oline-2"></div>
+      <div class="step-dot" id="ostep-3">3</div>
+    </div>
+    <div id="onboarding-step-content"></div>
+  </div>
+</div>
+
+<!-- Contributor Profile Modal -->
+<div id="modal-contributor" class="modal-overlay hidden" onclick="closeModalOutside(event,'modal-contributor')">
+  <div class="modal-box max-w-xl" id="contributor-modal-content"></div>
+</div>
+
+<!-- Project Detail Modal -->
+<div id="modal-project-detail" class="modal-overlay hidden" onclick="closeModalOutside(event,'modal-project-detail')">
+  <div class="modal-box max-w-2xl" id="project-detail-content"></div>
+</div>
+
+<!-- Negotiation Workspace Modal -->
+<div id="modal-negotiate" class="modal-overlay hidden" onclick="closeModalOutside(event,'modal-negotiate')">
+  <div class="modal-box max-w-2xl p-8" id="negotiate-content"></div>
+</div>
+
+<!-- Wallet Modal -->
+<div id="modal-wallet" class="modal-overlay hidden" onclick="closeModalOutside(event,'modal-wallet')">
+  <div class="modal-box max-w-sm p-8">
+    <div class="flex items-center justify-between mb-2">
+      <h3 class="font-sora font-bold text-xl">Connect Wallet</h3>
+      <button onclick="closeModal('modal-wallet')" class="text-on-surface-variant hover:text-on-surface">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <p class="text-xs text-on-surface-variant mb-6">Select a provider to connect to Forge AI on Mantle.</p>
+    <div class="space-y-3" id="wallet-options">
+      <button onclick="connectWallet('MetaMask')" class="w-full flex items-center gap-4 p-4 bg-surface-container-high border border-outline-variant rounded-xl hover:border-primary-fixed-dim transition-colors group">
+        <div class="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-orange-400">account_balance_wallet</span>
+        </div>
+        <div class="text-left flex-1">
+          <div class="font-bold text-sm">MetaMask</div>
+          <div class="text-xs text-on-surface-variant" id="mm-status">Browser extension</div>
+        </div>
+        <span id="mm-badge" class="text-[10px] font-label-mono px-2 py-0.5 rounded-full hidden"></span>
+      </button>
+      <button onclick="connectWallet('WalletConnect')" class="w-full flex items-center gap-4 p-4 bg-surface-container-high border border-outline-variant rounded-xl hover:border-primary-fixed-dim transition-colors group">
+        <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-blue-400">qr_code_2</span>
+        </div>
+        <div class="text-left flex-1">
+          <div class="font-bold text-sm">WalletConnect</div>
+          <div class="text-xs text-on-surface-variant">QR code / mobile</div>
+        </div>
+      </button>
+      <button onclick="connectWallet('Coinbase')" class="w-full flex items-center gap-4 p-4 bg-surface-container-high border border-outline-variant rounded-xl hover:border-primary-fixed-dim transition-colors group">
+        <div class="w-10 h-10 rounded-lg bg-blue-600/10 flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-blue-500">toll</span>
+        </div>
+        <div class="text-left flex-1">
+          <div class="font-bold text-sm">Coinbase Wallet</div>
+          <div class="text-xs text-on-surface-variant" id="cb-status">Smart wallet</div>
+        </div>
+        <span id="cb-badge" class="text-[10px] font-label-mono px-2 py-0.5 rounded-full hidden"></span>
+      </button>
+    </div>
+    <div class="mt-5 pt-4 border-t border-outline-variant flex items-center gap-2">
+      <span class="material-symbols-outlined text-[14px] text-on-surface-variant">lock</span>
+      <span class="text-[11px] text-on-surface-variant">Connecting to <span class="text-primary-fixed-dim font-label-mono">Mantle Network</span> · Non-custodial</span>
+    </div>
+  </div>
+</div>
+
+<script>
+// Detect installed wallets when modal opens and update badges
+function detectWallets() {
+  const mmBadge = document.getElementById('mm-badge');
+  const mmStatus = document.getElementById('mm-status');
+  const cbBadge = document.getElementById('cb-badge');
+  const cbStatus = document.getElementById('cb-status');
+  if(typeof window.ethereum !== 'undefined') {
+    const isMetaMask = window.ethereum.isMetaMask;
+    const isCB = window.ethereum.isCoinbaseWallet || window.ethereum.providers?.some(p => p.isCoinbaseWallet);
+    if(isMetaMask) {
+      mmBadge.textContent = 'DETECTED';
+      mmBadge.className = 'text-[10px] font-label-mono px-2 py-0.5 rounded-full bg-primary-fixed-dim/10 text-primary-fixed-dim border border-primary-fixed-dim/20';
+      mmStatus.textContent = 'Detected & ready';
+    }
+    if(isCB) {
+      cbBadge.textContent = 'DETECTED';
+      cbBadge.className = 'text-[10px] font-label-mono px-2 py-0.5 rounded-full bg-primary-fixed-dim/10 text-primary-fixed-dim border border-primary-fixed-dim/20';
+      cbStatus.textContent = 'Detected & ready';
+    }
+  }
+}
+</script>
+
+<!-- ============================================================
+     SCRIPTS
+============================================================ -->
+<script>
+// ========================
+// STATE
+// ========================
+const state = {
+  walletConnected: false,
+  walletAddress: null,
+  walletProvider: null,
+  userRole: null,       // 'founder' | 'contributor'
+  userProfile: null,    // saved profile object
+  currentProjectStep: 1,
+  currentOnboardingStep: 1,
+  newProject: {},
+  newContributor: {},
+  projectSkills: [],
+  contributorSkills: [],
+  projects: [
+    { id: 1, title: 'Mantle Analytics Dashboard', description: 'Need a Senior UI/UX Designer and React Developer for a comprehensive Mantle network analytics dashboard with real-time data visualization.', budget: '$4,500', timeline: '4 Weeks', skills: ['Figma', 'React', 'Web3 UX', 'TypeScript'], status: 'open', matchScore: null, contributor: null, milestones: ['Wireframes & design system', 'Frontend scaffold', 'Data integration', 'Testing & launch'], completedMilestones: [], escrowLocked: true, postedAt: '2d ago' },
+    { id: 2, title: 'Smart Contract Audit Tool', description: 'Build an automated smart contract auditing interface with AI-powered vulnerability detection and reporting for Solidity contracts.', budget: '$7,200', timeline: '6 Weeks', skills: ['Solidity', 'Python', 'Security', 'React'], status: 'active', matchScore: 91, contributor: 'Zara Ahmed', milestones: ['Audit engine core', 'Report generator', 'UI integration', 'Test suite', 'Documentation'], completedMilestones: [0, 1], escrowLocked: true, postedAt: '1w ago' },
+    { id: 3, title: 'ZK Identity Vault', description: 'Implement a zero-knowledge proof system for private credential verification on Mantle testnet. Includes circuit design and contract deployment.', budget: '$9,000', timeline: '8 Weeks', skills: ['ZK Proofs', 'Rust', 'Circom', 'Solidity'], status: 'completed', matchScore: 97, contributor: 'Kai Okafor', milestones: ['Circuit design', 'Prover implementation', 'Contract deployment', 'Frontend SDK'], completedMilestones: [0, 1, 2, 3], escrowLocked: false, postedAt: '3w ago' },
+    { id: 4, title: 'DeFi Lending Protocol UI', description: 'Design and develop a clean, intuitive interface for a decentralized lending protocol. Focus on mobile-first design and excellent UX for non-crypto users.', budget: '$3,200', timeline: '3 Weeks', skills: ['Figma', 'React', 'Tailwind', 'Web3.js'], status: 'open', matchScore: null, contributor: null, milestones: ['Design system', 'Core pages', 'Wallet integration', 'Testing'], completedMilestones: [], escrowLocked: false, postedAt: '5d ago' },
+  ],
+  contributors: [
+    { id: 1, name: 'Ace Crypt', handle: '@acecrypt', avatar: '🧑‍💻', role: 'Senior UI/UX Designer', skills: ['Figma', 'Web3 UX', 'React', 'Tailwind', 'Prototyping'], experience: '5 years', completionRate: 97, repScore: 4.9, projectsCompleted: 14, specialization: 'DeFi Interfaces', bio: 'Specialized in designing high-clarity interfaces for complex DeFi protocols. 4 verified Mantle projects.', githubVerified: true, certifications: ['Figma Expert', 'Web3 UX Certified'] },
+    { id: 2, name: 'Zara Ahmed', handle: '@zaraonchain', avatar: '👩‍💻', role: 'Smart Contract Developer', skills: ['Solidity', 'Hardhat', 'Foundry', 'Python', 'Security'], experience: '4 years', completionRate: 94, repScore: 4.7, projectsCompleted: 11, specialization: 'DeFi Protocols', bio: 'Building secure, gas-optimized smart contracts for DeFi. Audited 6 protocols with zero critical findings.', githubVerified: true, certifications: ['OpenZeppelin Certified', 'Chainlink Expert'] },
+    { id: 3, name: 'Kai Okafor', handle: '@kaiproof', avatar: '🧑‍🔬', role: 'ZK Engineer', skills: ['ZK Proofs', 'Circom', 'Rust', 'Solidity', 'Noir'], experience: '3 years', completionRate: 100, repScore: 5.0, projectsCompleted: 7, specialization: 'Zero Knowledge Systems', bio: 'Full-stack ZK engineer. Built privacy-preserving systems for 3 L2 protocols including Mantle testnet.', githubVerified: true, certifications: ['ZK Specialist', 'Rust Expert'] },
+    { id: 4, name: 'Mia Chen', handle: '@miafullstack', avatar: '👩‍🎨', role: 'Full Stack Developer', skills: ['React', 'TypeScript', 'Node.js', 'GraphQL', 'Web3.js'], experience: '6 years', completionRate: 92, repScore: 4.6, projectsCompleted: 19, specialization: 'Web3 dApps', bio: 'Full-stack developer building seamless Web3 experiences. Strong track record in fast-shipping teams.', githubVerified: true, certifications: ['AWS Certified', 'TypeScript Expert'] },
+    { id: 5, name: 'Dami Rivers', handle: '@damirust', avatar: '🧑‍🏭', role: 'Rust / Systems Engineer', skills: ['Rust', 'WASM', 'C++', 'Blockchain Core', 'Performance'], experience: '7 years', completionRate: 89, repScore: 4.5, projectsCompleted: 22, specialization: 'Protocol Engineering', bio: 'Systems engineer focused on performance-critical blockchain infrastructure. Contributed to 2 L2 core repos.', githubVerified: true, certifications: ['Rust Certified'] },
+    { id: 6, name: 'Priya Nair', handle: '@priyapy', avatar: '👩‍💼', role: 'Data / AI Engineer', skills: ['Python', 'ML', 'Subgraph', 'Analytics', 'Solidity'], experience: '4 years', completionRate: 96, repScore: 4.8, projectsCompleted: 10, specialization: 'On-chain Analytics', bio: 'Building intelligent on-chain data pipelines. Specialized in DeFi analytics and AI-assisted auditing tools.', githubVerified: false, certifications: ['Google ML Cert', 'The Graph Expert'] },
+  ],
+  agents: [
+    { id: 1, name: 'ATLAS', number: '01', tier: 'TIER 1 RECORDER', stake: '12,500', accuracy: 98.4, matchesMade: 143, successfulProjects: 132, successRate: 92, repScore: 4.9, recentActivity: [{ action: 'Recommended Ace Crypt', rep: '+0.4' }, { action: 'Verified Milestone #3', rep: '+0.1' }, { action: 'Contract Finalization', rep: '+0.8' }, { action: 'Rejected mismatched profile', rep: '+0.2' }] },
+    { id: 2, name: 'VECTOR', number: '02', tier: 'TIER 1 RECORDER', stake: '9,800', accuracy: 95.1, matchesMade: 98, successfulProjects: 87, successRate: 89, repScore: 4.7, recentActivity: [{ action: 'Recommended Zara Ahmed', rep: '+0.6' }, { action: 'Milestone dispute resolved', rep: '-0.3' }, { action: 'New project onboarded', rep: '+0.2' }] },
+    { id: 3, name: 'NEXUS', number: '03', tier: 'TIER 2 EVALUATOR', stake: '6,200', accuracy: 91.8, matchesMade: 67, successfulProjects: 58, successRate: 87, repScore: 4.4, recentActivity: [{ action: 'Profile score updated', rep: '+0.1' }, { action: 'Recommended Kai Okafor', rep: '+0.5' }] },
+    { id: 4, name: 'ORACLE', number: '04', tier: 'TIER 2 EVALUATOR', stake: '4,500', accuracy: 88.3, matchesMade: 41, successfulProjects: 34, successRate: 83, repScore: 4.1, recentActivity: [{ action: 'Skills analysis completed', rep: '+0.2' }, { action: 'Mis-scored candidate', rep: '-0.5' }] },
+    { id: 5, name: 'CIPHER', number: '05', tier: 'TIER 3 TRAINEE', stake: '1,000', accuracy: 79.4, matchesMade: 12, successfulProjects: 9, successRate: 75, repScore: 3.8, recentActivity: [{ action: 'First recommendation made', rep: '+0.3' }] },
+  ],
+  chainLog: [],
+};
+
+// ========================
+// FORGE AI AGENT API
+// ========================
+const AGENT_API = (window.location.hostname==='localhost'||window.location.hostname==='127.0.0.1') ? 'http://localhost:3001' : '';
+
+async function agentFetch(endpoint, body) {
+  try {
+    const isLocal = window.location.hostname==='localhost'||window.location.hostname==='127.0.0.1';
+    const url = isLocal ? (AGENT_API + endpoint) : ('/api' + endpoint);
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    if (!res.ok) throw new Error('Agent error: ' + res.status);
+    return await res.json();
+  } catch (err) {
+    const isLocal = window.location.hostname==='localhost'||window.location.hostname==='127.0.0.1';
+    showToast(isLocal ? 'Agent offline — run: node server.js' : 'Agent error — please try again', 'error');
+    throw err;
+  }
+}
+
+
+// ── Agent Loading Overlay ────────────────────────────────────
+function showAgentLoading(agentName, message) {
+  const existing = document.getElementById('agent-loading-overlay');
+  if(existing) existing.remove();
+
+  const steps = [
+    'Reading project requirements...',
+    'Analyzing contributor profiles...',
+    message,
+    'Writing decision to Mantle...',
+  ];
+
+  const overlay = document.createElement('div');
+  overlay.id = 'agent-loading-overlay';
+  overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.75);backdrop-filter:blur(8px);z-index:500;display:flex;align-items:center;justify-content:center;';
+  overlay.innerHTML = `
+    <div style="background:#0d1210;border:1px solid #1a2e22;border-radius:20px;padding:40px;max-width:440px;width:90%;text-align:center;">
+      <div style="width:64px;height:64px;border-radius:16px;background:rgba(0,227,139,0.1);border:1px solid rgba(0,227,139,0.3);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+        <span class="material-symbols-outlined" style="color:#00e38b;font-size:32px;">smart_toy</span>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:8px;">
+        <span style="width:8px;height:8px;border-radius:50%;background:#00e38b;display:inline-block;animation:bounce 1s infinite 0ms"></span>
+        <span style="color:#00e38b;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2px;">${agentName}</span>
+        <span style="width:8px;height:8px;border-radius:50%;background:#00e38b;display:inline-block;animation:bounce 1s infinite 300ms"></span>
+      </div>
+      <div style="color:#f0f0f0;font-family:'Sora',sans-serif;font-size:18px;font-weight:700;margin-bottom:8px;">Agent Processing</div>
+      <div id="agent-loading-step" style="color:#7a9a82;font-size:13px;margin-bottom:28px;min-height:20px;">${steps[0]}</div>
+      <div style="background:#0a0f0c;border-radius:8px;overflow:hidden;height:4px;margin-bottom:20px;">
+        <div id="agent-loading-bar" style="height:100%;background:linear-gradient(90deg,#00e38b,#00b86e);border-radius:8px;width:5%;transition:width 0.8s ease;"></div>
+      </div>
+      <div style="color:#3a5a42;font-size:11px;font-family:'Space Mono',monospace;">FORGE-AGENT-001 · MANTLE NETWORK</div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+
+  // Animate progress and steps
+  let stepIdx = 0;
+  const stepEl = document.getElementById('agent-loading-step');
+  const barEl  = document.getElementById('agent-loading-bar');
+  const widths = ['15%', '40%', '70%', '90%'];
+
+  const interval = setInterval(() => {
+    stepIdx = Math.min(stepIdx + 1, steps.length - 1);
+    if(stepEl) stepEl.textContent = steps[stepIdx];
+    if(barEl)  barEl.style.width  = widths[stepIdx] || '90%';
+    if(stepIdx >= steps.length - 1) clearInterval(interval);
+  }, 900);
+
+  overlay._interval = interval;
+}
+
+function hideAgentLoading() {
+  const overlay = document.getElementById('agent-loading-overlay');
+  if(overlay) {
+    if(overlay._interval) clearInterval(overlay._interval);
+    const bar = document.getElementById('agent-loading-bar');
+    if(bar) bar.style.width = '100%';
+    setTimeout(() => overlay.remove(), 400);
+  }
+}
+
+// ── Evaluator ────────────────────────────────────────────────
+async function runEvaluator(projectId) {
+  const project = state.projects.find(p => p.id === projectId);
+  if(!project) { showToast('Project not found', 'error'); return; }
+  if(!state.contributors.length) { showToast('No contributors to evaluate', 'error'); return; }
+
+  showAgentLoading('EVALUATOR', 'Analyzing ' + state.contributors.length + ' contributors against project requirements...');
+  addChainEntry('Agent Action', 'EVALUATOR started', 'EVAL', '0x' + randomHex(8));
+
+  try {
+    // Build clean contributor data for the agent
+    const contributorData = state.contributors.map(c => ({
+      id: c.id, name: c.name, role: c.role,
+      skills: c.skills, experience: c.experience,
+      repScore: c.repScore, completionRate: c.completionRate,
+      projectsCompleted: c.projectsCompleted, bio: c.bio,
+      githubVerified: c.githubVerified, certifications: c.certifications || []
+    }));
+
+    const projectData = {
+      id: project.id, title: project.title,
+      description: project.description, budget: project.budget,
+      timeline: project.timeline, skills: project.skills,
+      milestones: project.milestones
+    };
+
+    const result = await agentFetch('/agent/evaluate', {
+      project: projectData,
+      contributors: contributorData,
+    });
+
+    const rankings = result.result?.rankings;
+    hideAgentLoading();
+    if(rankings && rankings.length > 0) {
+      const top = rankings[0];
+      project.matchScore = top.matchScore;
+      project.agentResult = result.result;
+      const topContrib = state.contributors.find(c => c.id == top.contributorId || c.name === top.name);
+      if(topContrib) project.topMatch = topContrib.id;
+      if(result.onChain?.txHash) {
+        addChainEntry('Decision Logged', result.onChain.decisionHash?.slice(0,18) + '...', 'HASH', result.onChain.txHash?.slice(0,18));
+      }
+      if(state.currentPage==="projects")renderProjects();else if(state.currentPage==="contributors")renderContributors();else if(state.currentPage==="agents")renderAgents();
+      openAgentResultModal('EVALUATOR', result);
+    } else {
+      showToast('Agent returned no rankings — check your Groq key', 'error');
+    }
+  } catch(err) {
+    hideAgentLoading();
+    console.error('[EVALUATOR]', err);
+  }
+}
+
+// ── Negotiator ───────────────────────────────────────────────
+async function runNegotiator(projectId) {
+  const project = state.projects.find(p => p.id === projectId);
+  if(!project) return;
+
+  // Use top match contributor, or first contributor
+  const topId = project.topMatch || (state.contributors[0]?.id);
+  const contributor = state.contributors.find(c => c.id === topId) || state.contributors[0];
+  if(!contributor) { showToast('No contributor selected', 'error'); return; }
+
+  showAgentLoading('NEGOTIATOR', 'Generating project agreement between parties...');
+
+  try {
+    const result = await agentFetch('/agent/negotiate', {
+      project: { id: project.id, title: project.title, description: project.description, budget: project.budget, timeline: project.timeline, milestones: project.milestones, skills: project.skills },
+      contributor: { id: contributor.id, name: contributor.name, role: contributor.role, skills: contributor.skills, repScore: contributor.repScore },
+      clientOffer: { budget: project.budget, timeline: project.timeline, milestones: project.milestones },
+      contributorOffer: { budget: project.budget, timeline: project.timeline, notes: 'Ready to start immediately' },
+    });
+
+    hideAgentLoading();
+    if(result.onChain?.txHash) {
+      addChainEntry('Agreement Generated', 'NEGOTIATOR', 'CONTRACT', result.onChain.txHash?.slice(0,18));
+    }
+    openAgentResultModal('NEGOTIATOR', result);
+  } catch(err) {
+    hideAgentLoading();
+    console.error('[NEGOTIATOR]', err);
+  }
+}
+
+// ── Verifier ─────────────────────────────────────────────────
+async function runVerifier(projectId, milestoneIndex, submissionText) {
+  const project = state.projects.find(p => p.id === projectId);
+  if(!project) return;
+  const milestone = { id: 'M' + milestoneIndex, index: milestoneIndex, title: project.milestones[milestoneIndex] || 'Milestone ' + milestoneIndex };
+  const submission = { text: submissionText, contributorAddress: state.walletAddress || '0x0000', submittedAt: new Date().toISOString() };
+
+  showAgentLoading('VERIFIER', 'Reviewing milestone submission and checking deliverables...');
+
+  try {
+    const result = await agentFetch('/agent/verify', { project, milestone, submission, escrowId: project.escrowId });
+    const decision = result.result?.decision;
+
+    if(decision === 'APPROVE') {
+      project.completedMilestones = project.completedMilestones || [];
+      if(!project.completedMilestones.includes(milestoneIndex)) project.completedMilestones.push(milestoneIndex);
+      showToast('Milestone APPROVED — payment released!', 'success');
+      if(project.completedMilestones.length === project.milestones.length) project.status = 'completed';
+    } else {
+      showToast('Milestone REJECTED — ' + (result.result?.feedback?.slice(0,60) || 'needs revision'), 'error');
+    }
+
+    hideAgentLoading();
+    addChainEntry('Milestone ' + decision, project.milestones[milestoneIndex], decision === 'APPROVE' ? 'ESCROW' : 'REJECT', result.onChain?.txHash?.slice(0,18));
+    if(state.currentPage==="projects")renderProjects();else if(state.currentPage==="contributors")renderContributors();else if(state.currentPage==="agents")renderAgents();
+    openAgentResultModal('VERIFIER', result);
+  } catch(err) {
+    hideAgentLoading();
+    console.error('[VERIFIER]', err);
+  }
+}
+
+// ── Reputation Manager ───────────────────────────────────────
+async function runReputationUpdate(projectId) {
+  const project = state.projects.find(p => p.id === projectId);
+  if(!project || project.status !== 'completed') { showToast('Project must be completed first', 'error'); return; }
+
+  const contributorName = project.contributor || 'Unknown';
+  const contributor = state.contributors.find(c => c.name === contributorName) || state.contributors[0];
+  const client = { address: state.walletAddress || '0xCLIENT', name: 'Project Founder' };
+
+  showAgentLoading('REPUTATION MANAGER', 'Writing reputation scores to Mantle blockchain...');
+
+  try {
+    const result = await agentFetch('/agent/reputation', {
+      project: { id: project.id, title: project.title },
+      contributor: { address: contributor.handle || '0xCONTRIB', name: contributor.name, role: contributor.role },
+      client,
+      outcome: 'COMPLETED',
+      feedback: { rating: 5, comment: 'Excellent work, delivered on time.' }
+    });
+
+    // Update local rep score
+    if(result.result?.contributorDelta) {
+      contributor.repScore = Math.min(5, +(contributor.repScore + result.result.contributorDelta).toFixed(1));
+    }
+
+    hideAgentLoading();
+    addChainEntry('Reputation Updated', contributor.name, 'REP', result.onChain?.log?.txHash?.slice(0,18));
+    openAgentResultModal('REPUTATION_MANAGER', result);
+  } catch(err) {
+    hideAgentLoading();
+    console.error('[REPUTATION]', err);
+  }
+}
+
+// ── Orchestrator: free-form agent command ────────────────────
+async function sendAgentCommand(command) {
+  try {
+    const result = await agentFetch('/agent/orchestrate', {
+      command,
+      context: {
+        walletConnected: state.walletConnected,
+        walletAddress:   state.walletAddress,
+        projects:        state.projects.map(p => ({ id: p.id, title: p.title, status: p.status, skills: p.skills })),
+        contributors:    state.contributors.map(c => ({ id: c.id, name: c.name, role: c.role, repScore: c.repScore })),
+      },
+    });
+
+    // Auto-trigger sub-agents based on intent
+    const intent = result.result?.intent;
+    if(intent === 'EVALUATE' && state.projects.length > 0) {
+      const openProject = state.projects.find(p => p.status === 'open');
+      if(openProject) setTimeout(() => runEvaluator(openProject.id), 1500);
+    } else if(intent === 'NEGOTIATE' && state.projects.length > 0) {
+      const activeProject = state.projects.find(p => p.status === 'active') || state.projects[0];
+      if(activeProject) setTimeout(() => runNegotiator(activeProject.id), 1500);
+    }
+
+    addChainEntry('Orchestrator', intent || 'GENERAL', 'AGENT', '0x' + randomHex(8));
+    return result;
+  } catch(err) {
+    return null;
+  }
+}
+
+// ── Agent Result Modal ────────────────────────────────────────
+function openAgentResultModal(agentName, data) {
+  const existing = document.getElementById('agent-result-modal');
+  if(existing) existing.remove();
+  const result = data.result;
+  let content = '';
+
+  if(agentName === 'EVALUATOR' && result?.rankings) {
+    content = result.rankings.map((r, i) => `
+      <div class="flex items-start gap-3 p-3 bg-surface-container-high rounded-xl mb-2 ${i===0?'border border-primary-fixed-dim/30':''}">
+        <div class="text-xl font-bold text-primary-fixed-dim w-12 text-center shrink-0">${r.matchScore}<span class="text-xs">%</span></div>
+        <div class="flex-1 min-w-0">
+          <div class="font-bold text-sm">${r.name}</div>
+          <div class="text-xs text-on-surface-variant mb-1">${r.recommendation || ''}</div>
+          <div class="flex flex-wrap gap-1">${(r.strengths||[]).slice(0,3).map(s=>`<span class="text-[10px] bg-primary-fixed-dim/10 text-primary-fixed-dim px-1.5 py-0.5 rounded">${s}</span>`).join('')}</div>
+        </div>
+      </div>`).join('');
+    if(result.agentReasoning) {
+      content += `<div class="mt-3 p-3 bg-surface-container rounded-lg border border-outline-variant text-xs text-on-surface-variant"><span class="text-primary-fixed-dim font-bold">Reasoning: </span>${result.agentReasoning}</div>`;
+    }
+  } else if(agentName === 'NEGOTIATOR' && result?.agreedTerms) {
+    const t = result.agreedTerms;
+    content = `<div class="space-y-2 text-sm">
+      <div class="flex justify-between py-2 border-b border-outline-variant"><span class="text-on-surface-variant">Budget</span><span class="font-bold text-primary-fixed-dim">${t.budget} ${t.currency||'MNT'}</span></div>
+      <div class="flex justify-between py-2 border-b border-outline-variant"><span class="text-on-surface-variant">Timeline</span><span class="font-bold">${t.timeline}</span></div>
+      <div class="pt-2"><div class="text-on-surface-variant text-xs mb-2">MILESTONES</div>${(t.milestones||[]).map(m=>`<div class="flex justify-between text-xs py-1.5 border-b border-outline-variant/30"><span>${m.title}</span><span class="text-primary-fixed-dim">${m.payment}</span></div>`).join('')}</div>
+      ${result.negotiationNotes?`<div class="mt-3 p-3 bg-surface-container rounded-lg text-xs text-on-surface-variant"><span class="text-primary-fixed-dim font-bold">Notes: </span>${result.negotiationNotes}</div>`:''}
+    </div>`;
+  } else if(agentName === 'VERIFIER' && result?.decision) {
+    const approved = result.decision === 'APPROVE';
+    content = `
+      <div class="flex items-center gap-3 p-4 rounded-xl mb-4 ${approved ? 'bg-primary-fixed-dim/10 border border-primary-fixed-dim/30' : 'bg-error/10 border border-error/30'}">
+        <span class="material-symbols-outlined text-2xl ${approved ? 'text-primary-fixed-dim' : 'text-error'}">${approved ? 'check_circle' : 'cancel'}</span>
+        <div><div class="font-bold">${result.decision}</div><div class="text-xs text-on-surface-variant">Confidence: ${result.confidence}%</div></div>
+      </div>
+      <div class="text-sm text-on-surface-variant mb-3">${result.feedback || ''}</div>
+      <div class="space-y-1">${(result.checklist||[]).map(c=>`<div class="flex items-center gap-2 text-xs"><span class="material-symbols-outlined text-[14px] ${c.passed?'text-primary-fixed-dim':'text-error'}">${c.passed?'check':'close'}</span><span>${c.criterion}</span></div>`).join('')}</div>`;
+  } else if(agentName === 'REPUTATION_MANAGER' && result?.contributorDelta !== undefined) {
+    content = `<div class="space-y-3">
+      <div class="flex justify-between items-center p-3 bg-surface-container-high rounded-xl">
+        <span class="text-sm text-on-surface-variant">Contributor</span>
+        <span class="font-bold text-primary-fixed-dim">${result.contributorDelta > 0 ? '+' : ''}${result.contributorDelta}</span>
+      </div>
+      <div class="flex justify-between items-center p-3 bg-surface-container-high rounded-xl">
+        <span class="text-sm text-on-surface-variant">Client</span>
+        <span class="font-bold text-primary-fixed-dim">${result.clientDelta > 0 ? '+' : ''}${result.clientDelta}</span>
+      </div>
+      <div class="flex justify-between items-center p-3 bg-surface-container-high rounded-xl">
+        <span class="text-sm text-on-surface-variant">Agent</span>
+        <span class="font-bold text-primary-fixed-dim">${result.agentDelta > 0 ? '+' : ''}${result.agentDelta}</span>
+      </div>
+      ${(result.badges||[]).length ? `<div class="flex flex-wrap gap-2 pt-2">${result.badges.map(b=>`<span class="text-xs bg-primary-fixed-dim/10 text-primary-fixed-dim px-2 py-1 rounded-full border border-primary-fixed-dim/20">${b}</span>`).join('')}</div>` : ''}
+    </div>`;
+  } else {
+    content = `<pre class="text-xs text-on-surface-variant overflow-auto max-h-48 whitespace-pre-wrap">${JSON.stringify(result, null, 2)}</pre>`;
+  }
+
+  const modal = document.createElement('div');
+  modal.id = 'agent-result-modal';
+  modal.className = 'modal-overlay fade-in';
+  modal.innerHTML = `
+    <div class="modal-box max-w-lg p-6">
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-primary-fixed-dim pulse-green"></span>
+          <span class="font-sora font-bold">${agentName}</span>
+          <span class="text-xs text-on-surface-variant font-normal ml-1 font-label-mono">FORGE-AGENT-001</span>
+        </div>
+        <button onclick="document.getElementById('agent-result-modal').remove()" class="text-on-surface-variant hover:text-on-surface">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      ${data.onChain ? `<div class="mb-4 p-2 bg-surface-container rounded-lg flex items-center gap-2 text-[10px] font-label-mono text-on-surface-variant">
+        <span class="material-symbols-outlined text-[14px] text-primary-fixed-dim">link</span>
+        ${data.onChain.txHash ? data.onChain.txHash.slice(0,30) + '...' : 'On-chain logged'}
+      </div>` : ''}
+      <div class="overflow-y-auto max-h-[55vh]">${content}</div>
+    </div>`;
+  document.body.appendChild(modal);
+}
+
+// ── Agent Panel ───────────────────────────────────────────────
+function toggleAgentPanel() {
+  const existing = document.getElementById('agent-panel');
+  if(existing) { existing.remove(); return; }
+  const panel = document.createElement('div');
+  panel.id = 'agent-panel';
+  panel.className = 'fixed right-4 bottom-4 z-[200] w-[360px] max-w-[95vw] flex flex-col bg-surface-container border border-outline-variant rounded-2xl shadow-2xl fade-in';
+  panel.style.maxHeight = '70vh';
+  panel.innerHTML = `
+    <div class="flex items-center justify-between px-4 py-3 border-b border-outline-variant shrink-0">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-primary-fixed-dim pulse-green"></span>
+        <span class="font-sora font-bold text-sm">Forge AI Agent</span>
+        <span class="text-[10px] font-label-mono text-on-surface-variant bg-surface-bright px-1.5 py-0.5 rounded">FORGE-AGENT-001</span>
+      </div>
+      <button onclick="document.getElementById('agent-panel').remove()" class="text-on-surface-variant hover:text-on-surface">
+        <span class="material-symbols-outlined text-[18px]">close</span>
+      </button>
+    </div>
+    <div id="agent-messages" class="flex-1 overflow-y-auto p-4 space-y-3" style="min-height:180px">
+      <div class="flex gap-2">
+        <span class="w-6 h-6 rounded-full bg-primary-fixed-dim/20 flex items-center justify-center shrink-0 mt-0.5">
+          <span class="material-symbols-outlined text-primary-fixed-dim text-[14px]">smart_toy</span>
+        </span>
+        <div class="bg-surface-bright rounded-xl rounded-tl-none px-3 py-2 text-sm text-on-surface max-w-[85%]">
+          Hey! I'm your Forge AI agent. Try: "evaluate contributors for project 1", "generate agreement", or "verify milestone".
+        </div>
+      </div>
+    </div>
+    <div class="px-3 pb-3 pt-2 border-t border-outline-variant shrink-0">
+      <div class="flex gap-2 items-center">
+        <input id="agent-panel-input" type="text" placeholder="Ask the agent..."
+          style="color:#f0f0f0 !important;-webkit-text-fill-color:#f0f0f0 !important;background:#1a1f1c;border:1px solid #2a3330;border-radius:10px;padding:8px 12px;font-size:14px;flex:1;outline:none;"
+          onkeydown="if(event.key==='Enter'||event.keyCode===13){event.preventDefault();submitAgentPanel();}"/>
+        <button onclick="submitAgentPanel()" style="background:#00e38b;color:#000;width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;border:none;cursor:pointer;flex-shrink:0;">
+          <span class="material-symbols-outlined" style="font-size:18px;">send</span>
+        </button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(panel);
+  setTimeout(()=>document.getElementById('agent-panel-input')?.focus(), 100);
+}
+
+function appendAgentMessage(text, role='agent') {
+  const msgs = document.getElementById('agent-messages');
+  if(!msgs) return;
+  const div = document.createElement('div');
+  div.className = 'flex gap-2' + (role==='user' ? ' justify-end' : '');
+  if(role==='agent') {
+    div.innerHTML = `<span class="w-6 h-6 rounded-full bg-primary-fixed-dim/20 flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-primary-fixed-dim text-[14px]">smart_toy</span></span><div class="bg-surface-bright rounded-xl rounded-tl-none px-3 py-2 text-sm text-on-surface max-w-[85%]">${text}</div>`;
+  } else {
+    div.innerHTML = `<div style="background:rgba(0,227,139,0.1);border:1px solid rgba(0,227,139,0.2);border-radius:10px;padding:8px 12px;font-size:14px;max-width:85%;color:#f0f0f0;">${text}</div>`;
+  }
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function appendAgentThinking() {
+  const msgs = document.getElementById('agent-messages');
+  if(!msgs) return;
+  const div = document.createElement('div');
+  div.id = 'agent-thinking';
+  div.className = 'flex gap-2';
+  div.innerHTML = `<span class="w-6 h-6 rounded-full bg-primary-fixed-dim/20 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-primary-fixed-dim text-[14px]">smart_toy</span></span><div class="bg-surface-bright rounded-xl rounded-tl-none px-3 py-2 flex items-center gap-1.5"><span style="width:6px;height:6px;border-radius:50%;background:#00e38b;display:inline-block;animation:bounce 1s infinite 0ms"></span><span style="width:6px;height:6px;border-radius:50%;background:#00e38b;display:inline-block;animation:bounce 1s infinite 150ms"></span><span style="width:6px;height:6px;border-radius:50%;background:#00e38b;display:inline-block;animation:bounce 1s infinite 300ms"></span></div>`;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+async function submitAgentPanel() {
+  const input = document.getElementById('agent-panel-input');
+  const cmd = input?.value?.trim();
+  if(!cmd) return;
+  input.value = '';
+  appendAgentMessage(cmd, 'user');
+  appendAgentThinking();
+  const result = await sendAgentCommand(cmd);
+  document.getElementById('agent-thinking')?.remove();
+  appendAgentMessage(result?.result?.response || 'Could not process that. Try: "evaluate contributors for project 1"', 'agent');
+}
+
+function injectAgentBar() { toggleAgentPanel(); }
+async function submitAgentBar() { submitAgentPanel(); }
+
+function runAgentEval(projectId) {
+  const p = state.projects.find(x=>x.id===projectId);
+  if(!p) return;
+  closeModal('modal-project-detail');
+  runEvaluator(projectId);
+}
+
+
+
+// ════════════════════════════════════════════════════════════
+// ROLE SYSTEM — one wallet, one role, forever
+// ════════════════════════════════════════════════════════════
+
+function showRoleSelection(address) {
+  const existing = document.getElementById('role-modal');
+  if(existing) existing.remove();
+
+  const modal = document.createElement('div');
+  modal.id = 'role-modal';
+  modal.className = 'modal-overlay fade-in';
+  modal.innerHTML = `
+    <div class="modal-box max-w-md p-8">
+      <div class="text-center mb-6">
+        <div class="w-14 h-14 rounded-2xl bg-primary-fixed-dim/10 border border-primary-fixed-dim/30 flex items-center justify-center mx-auto mb-4">
+          <span class="material-symbols-outlined text-primary-fixed-dim text-[28px]">manage_accounts</span>
+        </div>
+        <h3 class="font-sora font-bold text-xl mb-1">Choose Your Role</h3>
+        <p class="text-sm text-on-surface-variant">This is permanent for this wallet. Choose carefully.</p>
+        <p class="text-xs font-label-mono text-on-surface-variant/60 mt-1">${address.slice(0,6)}...${address.slice(-4)}</p>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4 mb-6">
+        <button onclick="selectRole('founder')" id="role-founder"
+          class="role-card p-5 border-2 border-outline-variant rounded-2xl text-center hover:border-primary-fixed-dim transition-all group cursor-pointer"
+          style="background:transparent;">
+          <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mx-auto mb-3 group-hover:bg-blue-500/20 transition-colors">
+            <span class="material-symbols-outlined text-blue-400 text-[24px]">business_center</span>
+          </div>
+          <div class="font-bold text-sm mb-1">Founder</div>
+          <div class="text-xs text-on-surface-variant">Post projects, hire contributors, manage escrow</div>
+        </button>
+
+        <button onclick="selectRole('contributor')" id="role-contributor"
+          class="role-card p-5 border-2 border-outline-variant rounded-2xl text-center hover:border-primary-fixed-dim transition-all group cursor-pointer"
+          style="background:transparent;">
+          <div class="w-12 h-12 rounded-xl bg-primary-fixed-dim/10 flex items-center justify-center mx-auto mb-3 group-hover:bg-primary-fixed-dim/20 transition-colors">
+            <span class="material-symbols-outlined text-primary-fixed-dim text-[24px]">code</span>
+          </div>
+          <div class="font-bold text-sm mb-1">Contributor</div>
+          <div class="text-xs text-on-surface-variant">Build projects, earn MNT, grow your reputation</div>
+        </button>
+      </div>
+
+      <div id="role-profile-form" class="hidden">
+        <!-- Dynamic form injected by selectRole() -->
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+}
+
+function selectRole(role) {
+  // Highlight selected card
+  document.querySelectorAll('.role-card').forEach(c => {
+    c.style.borderColor = '';
+    c.classList.remove('border-primary-fixed-dim');
+  });
+  const card = document.getElementById('role-' + role);
+  if(card) card.style.borderColor = '#00e38b';
+
+  const form = document.getElementById('role-profile-form');
+  if(!form) return;
+  form.classList.remove('hidden');
+
+  if(role === 'founder') {
+    form.innerHTML = `
+      <div class="space-y-3">
+        <div class="text-xs font-label-mono text-primary-fixed-dim mb-3">FOUNDER PROFILE</div>
+        <input id="rp-name" placeholder="Full Name *" class="forge-input" required/>
+        <input id="rp-company" placeholder="Company / Project Name" class="forge-input"/>
+        <input id="rp-email" placeholder="Email (optional)" class="forge-input" type="email"/>
+        <textarea id="rp-bio" placeholder="What are you building?" class="forge-input" rows="2" style="resize:none;"></textarea>
+        <button onclick="saveProfile('founder')" class="w-full bg-primary-fixed-dim text-on-primary py-3 rounded-xl font-bold text-sm mt-2">
+          Create Founder Account
+        </button>
+      </div>`;
+  } else {
+    form.innerHTML = `
+      <div class="space-y-3">
+        <div class="text-xs font-label-mono text-primary-fixed-dim mb-3">CONTRIBUTOR PROFILE</div>
+        <input id="rp-name" placeholder="Full Name *" class="forge-input" required/>
+        <input id="rp-handle" placeholder="@handle *" class="forge-input"/>
+        <input id="rp-role" placeholder="Role (e.g. Smart Contract Developer)" class="forge-input"/>
+        <input id="rp-skills" placeholder="Skills (comma separated)" class="forge-input"/>
+        <textarea id="rp-bio" placeholder="Short bio" class="forge-input" rows="2" style="resize:none;"></textarea>
+        <button onclick="saveProfile('contributor')" class="w-full bg-primary-fixed-dim text-on-primary py-3 rounded-xl font-bold text-sm mt-2">
+          Create Contributor Account
+        </button>
+      </div>`;
+  }
+}
+
+function saveProfile(role) {
+  const name = document.getElementById('rp-name')?.value?.trim();
+  if(!name) { showToast('Name is required', 'error'); return; }
+
+  const profile = {
+    role,
+    name,
+    address: state.walletAddress,
+    createdAt: new Date().toISOString(),
+  };
+
+  if(role === 'founder') {
+    profile.company = document.getElementById('rp-company')?.value?.trim();
+    profile.email   = document.getElementById('rp-email')?.value?.trim();
+    profile.bio     = document.getElementById('rp-bio')?.value?.trim();
+  } else {
+    profile.handle = document.getElementById('rp-handle')?.value?.trim();
+    profile.roleTitle = document.getElementById('rp-role')?.value?.trim();
+    profile.skills = (document.getElementById('rp-skills')?.value || '').split(',').map(s=>s.trim()).filter(Boolean);
+    profile.bio    = document.getElementById('rp-bio')?.value?.trim();
+    profile.repScore = 3.0;
+    profile.projectsCompleted = 0;
+    profile.completionRate = 100;
+    profile.githubVerified = false;
+    // Add to contributors list
+    state.contributors.push({
+      id: Date.now(), name: profile.name, handle: profile.handle || ('@' + name.toLowerCase().replace(/\s/g,'')),
+      avatar: '👤', role: profile.roleTitle || 'Contributor',
+      skills: profile.skills, experience: '0 years',
+      completionRate: 100, repScore: 3.0, projectsCompleted: 0,
+      specialization: profile.roleTitle || 'General',
+      bio: profile.bio || '', githubVerified: false, certifications: [],
+      address: state.walletAddress,
+    });
+  }
+
+  // Save permanently to localStorage
+  localStorage.setItem('forge_profile_' + state.walletAddress.toLowerCase(), JSON.stringify(profile));
+  state.userRole    = role;
+  state.userProfile = profile;
+
+  // Close modal
+  document.getElementById('role-modal')?.remove();
+
+  updateNavForRole(role);
+  showToast('Welcome to Forge AI, ' + name + '!', 'success');
+  addChainEntry('Profile Created', name + ' (' + role + ')', 'AUTH', '0x' + randomHex(8));
+
+  // Route to right section
+  if(role === 'founder') showSection('projects');
+  else showSection('contributors');
+}
+
+function updateNavForRole(role) {
+  const btn = document.getElementById('wallet-btn');
+  if(!btn) return;
+  const display = state.walletAddress?.slice(0,6) + '...' + state.walletAddress?.slice(-4);
+  const roleIcon = role === 'founder' ? 'business_center' : 'code';
+  const roleColor = role === 'founder' ? '#60a5fa' : '#00e38b';
+  btn.innerHTML = `
+    <span class="w-2 h-2 rounded-full inline-block mr-1.5 pulse-green" style="background:#00e38b"></span>
+    <span class="material-symbols-outlined text-[14px] mr-1" style="color:${roleColor}">${roleIcon}</span>
+    ${display}`;
+  btn.className = 'border border-primary-fixed-dim/50 text-primary-fixed-dim px-4 py-2 rounded-lg font-bold hover:scale-[0.98] transition-transform text-sm font-label-mono flex items-center';
+}
+
+// ========================
+// CANVAS ANIMATION
+// ========================
+const canvas = document.getElementById('ambient-canvas');
+const ctx = canvas.getContext('2d');
+let width, height, particles = [], mouse = { x: -1000, y: -1000 }, time = 0;
+const MANTLE_GREEN = '#00E38B';
+
+class Particle {
+  constructor() { this.reset(); }
+  reset() { this.x = Math.random()*width; this.y = Math.random()*height; this.size = Math.random()*2.5+0.5; this.speedX = (Math.random()-0.5)*0.3; this.speedY = (Math.random()-0.5)*0.3; this.opacity = Math.random()*0.4+0.05; this.rotation = Math.random()*Math.PI*2; this.rotationSpeed = (Math.random()-0.5)*0.015; this.sides = 3+Math.floor(Math.random()*2); }
+  update() { this.x+=this.speedX; this.y+=this.speedY; this.rotation+=this.rotationSpeed; const dx=mouse.x-this.x, dy=mouse.y-this.y, dist=Math.sqrt(dx*dx+dy*dy); if(dist<180){this.x-=dx*0.002;this.y-=dy*0.002;} if(this.x<0||this.x>width||this.y<0||this.y>height)this.reset(); }
+  draw() { ctx.save(); ctx.translate(this.x,this.y); ctx.rotate(this.rotation); ctx.globalAlpha=this.opacity; ctx.fillStyle=MANTLE_GREEN; ctx.beginPath(); for(let i=0;i<this.sides;i++){const a=(i*2*Math.PI)/this.sides; ctx.lineTo(this.size*Math.cos(a),this.size*Math.sin(a));} ctx.closePath(); ctx.fill(); ctx.restore(); }
+}
+
+function initCanvas() { resize(); particles=[]; for(let i=0;i<35;i++)particles.push(new Particle()); animate(); }
+function resize() { width=window.innerWidth; height=window.innerHeight; canvas.width=width*devicePixelRatio; canvas.height=height*devicePixelRatio; ctx.scale(devicePixelRatio,devicePixelRatio); }
+function drawGrid() { const gs=100,dx=Math.sin(time*0.0004)*15,dy=Math.cos(time*0.0004)*15,p=(Math.sin(time*0.0008)+1)*0.5; ctx.strokeStyle=`rgba(0,227,139,${0.025+p*0.015})`; ctx.lineWidth=1; ctx.beginPath(); for(let x=(dx%gs);x<width;x+=gs){ctx.moveTo(x,0);ctx.lineTo(x,height);} for(let y=(dy%gs);y<height;y+=gs){ctx.moveTo(0,y);ctx.lineTo(width,y);} ctx.stroke(); }
+function animate() { time=performance.now(); ctx.clearRect(0,0,width,height); drawGrid(); const g=ctx.createRadialGradient(mouse.x,mouse.y,0,mouse.x,mouse.y,350); g.addColorStop(0,'rgba(0,227,139,0.06)'); g.addColorStop(1,'rgba(10,10,11,0)'); ctx.fillStyle=g; ctx.fillRect(0,0,width,height); particles.forEach(p=>{p.update();p.draw();}); requestAnimationFrame(animate); }
+window.addEventListener('resize',resize);
+window.addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY;});
+initCanvas();
+
+// ========================
+// NAVIGATION
+// ========================
+function showSection(id) {
+  document.querySelectorAll('.page-section').forEach(s=>s.classList.remove('active'));
+  document.getElementById('section-'+id).classList.add('active');
+  document.querySelectorAll('[id^="nav-"]').forEach(b=>b.classList.remove('active'));
+  const btn = document.getElementById('nav-'+id);
+  if(btn) btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(id==='projects') renderProjects();
+  if(id==='contributors') renderContributors();
+  if(id==='agents') renderAgents();
+  if(id==='chain') renderChainLog();
+}
+
+let _menuOpen = false;
+function toggleMobileMenu() {
+  const m = document.getElementById('mobile-menu');
+  const top = document.getElementById('hb-top');
+  const mid = document.getElementById('hb-mid');
+  const bot = document.getElementById('hb-bot');
+  _menuOpen = !_menuOpen;
+  if(_menuOpen) {
+    m.style.maxHeight = '400px';
+    m.style.opacity = '1';
+    m.style.pointerEvents = 'auto';
+    top.style.transform = 'translateY(5.5px) rotate(45deg)';
+    mid.style.opacity = '0';
+    mid.style.transform = 'scaleX(0)';
+    bot.style.transform = 'translateY(-5.5px) rotate(-45deg)';
+    // Close on outside click
+    setTimeout(() => {
+      document.addEventListener('click', function _closeMenu(e) {
+        const menu = document.getElementById('mobile-menu');
+        const btn = document.getElementById('hamburger-btn');
+        if(!menu.contains(e.target) && !btn.contains(e.target)) {
+          if(_menuOpen) toggleMobileMenu();
+          document.removeEventListener('click', _closeMenu);
+        }
+      });
+    }, 50);
+  } else {
+    m.style.maxHeight = '0';
+    m.style.opacity = '0';
+    m.style.pointerEvents = 'none';
+    top.style.transform = '';
+    mid.style.opacity = '1';
+    mid.style.transform = '';
+    bot.style.transform = '';
+  }
+}
+
+// ========================
+// TOAST
+// ========================
+function showToast(msg, type='info') {
+  const t = document.getElementById('toast');
+  t.className = `toast ${type}`;
+  t.innerHTML = `<div class="flex items-center gap-3"><span class="material-symbols-outlined text-[18px] ${type==='success'?'text-primary-fixed-dim':type==='error'?'text-error':'text-secondary'}">${type==='success'?'check_circle':type==='error'?'error':'info'}</span><span>${msg}</span></div>`;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 3200);
+}
+
+// ========================
+// MODALS
+// ========================
+function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
+function openModal(id) {
+  document.getElementById(id).classList.remove('hidden');
+  if(id === 'modal-wallet') { setTimeout(detectWallets, 50); }
+}
+function closeModalOutside(e, id) { if(e.target.id===id) closeModal(id); }
+
+// ========================
+// WALLET
+// ========================
+const MANTLE_CHAIN_ID = '0x138B'; // Mantle Mainnet (5003 in hex)
+const MANTLE_TESTNET_CHAIN_ID = '0x138C'; // Mantle Sepolia testnet
+
+function toggleWallet() {
+  if(state.walletConnected) { showDisconnectConfirm(); return; }
+  openModal('modal-wallet');
+}
+
+function showDisconnectConfirm() {
+  const shortened = state.walletAddress;
+  const btn = document.getElementById('wallet-btn');
+  // Toggle a small dropdown
+  let dropdown = document.getElementById('wallet-dropdown');
+  if(dropdown) { dropdown.remove(); return; }
+  dropdown = document.createElement('div');
+  dropdown.id = 'wallet-dropdown';
+  dropdown.className = 'absolute right-0 top-12 bg-surface-container border border-outline-variant rounded-xl p-3 min-w-[200px] z-[200] shadow-xl fade-in';
+  dropdown.innerHTML = `
+    <div class="text-xs font-label-mono text-on-surface-variant mb-2">CONNECTED</div>
+    <div class="font-label-mono text-sm text-primary-fixed-dim mb-3 truncate">${shortened}</div>
+    <div class="text-xs font-label-mono text-on-surface-variant mb-3 flex items-center gap-1">
+      <span class="w-2 h-2 rounded-full bg-primary-fixed-dim pulse-green inline-block"></span>
+      ${state.walletProvider}
+    </div>
+    <button onclick="copyAddress()" class="w-full text-left text-sm py-2 px-3 rounded-lg hover:bg-surface-bright transition-colors text-on-surface-variant hover:text-on-surface flex items-center gap-2">
+      <span class="material-symbols-outlined text-[16px]">content_copy</span> Copy Address
+    </button>
+    <button onclick="disconnectWallet()" class="w-full text-left text-sm py-2 px-3 rounded-lg hover:bg-error/10 transition-colors text-error flex items-center gap-2 mt-1">
+      <span class="material-symbols-outlined text-[16px]">logout</span> Disconnect
+    </button>
+  `;
+  const navRight = document.getElementById('wallet-btn').parentElement;
+  navRight.style.position = 'relative';
+  navRight.appendChild(dropdown);
+  // Close on outside click
+  setTimeout(() => {
+    document.addEventListener('click', function handler(e) {
+      if(!dropdown.contains(e.target) && e.target.id !== 'wallet-btn') {
+        dropdown.remove();
+        document.removeEventListener('click', handler);
+      }
+    });
+  }, 10);
+}
+
+function copyAddress() {
+  if(state.walletAddress) {
+    navigator.clipboard.writeText(state.walletAddress).then(() => showToast('Address copied!', 'success'));
+  }
+  const d = document.getElementById('wallet-dropdown');
+  if(d) d.remove();
+}
+
+async function connectWallet(provider) {
+  closeModal('modal-wallet');
+  if(provider === 'MetaMask') {
+    await connectMetaMask();
+  } else if(provider === 'WalletConnect') {
+    await connectWalletConnect();
+  } else if(provider === 'Coinbase') {
+    await connectCoinbase();
+  }
+}
+
+async function connectMetaMask() {
+  if(typeof window.ethereum === 'undefined') {
+    const isMobile = /iPhone|iPad|Android/i.test(navigator.userAgent);
+    if(isMobile) {
+      showToast('Opening MetaMask app...', 'info');
+      setTimeout(()=>window.open('https://metamask.app.link/dapp/'+window.location.host,'_blank'),500);
+    } else {
+      showToast('MetaMask not detected. Please install the extension.', 'error');
+      setTimeout(()=>window.open('https://metamask.io/download/','_blank'),1500);
+    }
+    return;
+  }
+  try {
+    setWalletLoading(true);
+    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+    if(!accounts || accounts.length === 0) throw new Error('No accounts returned');
+    const address = accounts[0];
+    // Try to switch to Mantle network
+    await switchToMantle();
+    setWalletConnected(address, 'MetaMask');
+    // Listen for account/chain changes
+    window.ethereum.on('accountsChanged', handleAccountsChanged);
+    window.ethereum.on('chainChanged', handleChainChanged);
+  } catch(err) {
+    setWalletLoading(false);
+    if(err.code === 4001) {
+      showToast('Connection rejected by user.', 'error');
+    } else {
+      showToast('MetaMask error: ' + (err.message || 'Unknown error'), 'error');
+    }
+  }
+}
+
+async function switchToMantle() {
+  try {
+    await window.ethereum.request({
+      method: 'wallet_switchEthereumChain',
+      params: [{ chainId: MANTLE_CHAIN_ID }]
+    });
+  } catch(switchErr) {
+    // Chain not added yet — add it
+    if(switchErr.code === 4902) {
+      try {
+        await window.ethereum.request({
+          method: 'wallet_addEthereumChain',
+          params: [{
+            chainId: MANTLE_CHAIN_ID,
+            chainName: 'Mantle',
+            nativeCurrency: { name: 'MNT', symbol: 'MNT', decimals: 18 },
+            rpcUrls: ['https://rpc.mantle.xyz'],
+            blockExplorerUrls: ['https://explorer.mantle.xyz']
+          }]
+        });
+      } catch(addErr) {
+        // User declined adding network — continue anyway
+        console.warn('Could not add Mantle network:', addErr.message);
+      }
+    }
+  }
+}
+
+async function connectWalletConnect() {
+  // WalletConnect v2 requires a project ID and SDK — provide a deep-link fallback
+  // for now with a clear message, and stub the connection
+  showToast('Opening WalletConnect...', 'info');
+  // Check if mobile wallet available via injected provider
+  if(typeof window.ethereum !== 'undefined' && window.ethereum.isWalletConnect) {
+    await connectMetaMask(); // already WC-bridged
+    return;
+  }
+  // Generate a fake pairing URI for demo; in production replace with @walletconnect/modal
+  const wcUri = `wc:${randomHex(32)}@2?relay-protocol=irn&symKey=${randomHex(64)}`;
+  // Show QR modal
+  showWCModal(wcUri);
+}
+
+function showWCModal(uri) {
+  const overlay = document.createElement('div');
+  overlay.id = 'wc-overlay';
+  overlay.className = 'modal-overlay';
+  overlay.innerHTML = `
+    <div class="modal-box max-w-sm p-8 text-center">
+      <button onclick="document.getElementById('wc-overlay').remove()" class="absolute top-4 right-4 text-on-surface-variant hover:text-on-surface">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+      <h3 class="font-sora font-bold text-xl mb-2">WalletConnect</h3>
+      <p class="text-sm text-on-surface-variant mb-6">Scan with your mobile wallet or paste the URI.</p>
+      <div class="bg-white rounded-xl p-4 mb-4 mx-auto w-fit">
+        <canvas id="wc-qr" width="180" height="180"></canvas>
+      </div>
+      <div class="forge-input text-[10px] font-label-mono text-on-surface-variant mb-4 text-left break-all cursor-text select-all">${uri.slice(0,60)}...</div>
+      <p class="text-xs text-on-surface-variant mb-4">For a production integration, install <span class="text-primary-fixed-dim">@walletconnect/modal</span> and provide a Project ID.</p>
+      <button onclick="simulateWCConnect();document.getElementById('wc-overlay').remove()" class="w-full bg-primary-fixed-dim text-on-primary py-2.5 rounded-lg font-bold text-sm">
+        Simulate Connection (Demo)
+      </button>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+  // Draw a basic QR-like pattern on canvas
+  drawFakeQR(document.getElementById('wc-qr'), uri);
+}
+
+function drawFakeQR(canvas, data) {
+  const ctx = canvas.getContext('2d');
+  const size = 180, modules = 25, mod = size/modules;
+  ctx.fillStyle = '#fff';
+  ctx.fillRect(0,0,size,size);
+  ctx.fillStyle = '#000';
+  // Use data string to seed a deterministic pattern
+  for(let r=0;r<modules;r++) {
+    for(let c=0;c<modules;c++) {
+      const isEdge = r<2||r>modules-3||c<2||c>modules-3;
+      const isFinder = (r<7&&c<7)||(r<7&&c>modules-8)||(r>modules-8&&c<7);
+      const charCode = data.charCodeAt((r*modules+c) % data.length);
+      if(isFinder || (!isEdge && charCode % 2 === 0)) {
+        ctx.fillRect(c*mod, r*mod, mod, mod);
+      }
+    }
+  }
+}
+
+function simulateWCConnect() {
+  const address = '0x' + randomHex(8).toUpperCase() + '...' + randomHex(4).toUpperCase();
+  setWalletConnected(address, 'WalletConnect');
+}
+
+async function connectCoinbase() {
+  // Check for Coinbase Wallet injected provider
+  const isCoinbase = typeof window.ethereum !== 'undefined' && 
+    (window.ethereum.isCoinbaseWallet || window.ethereum.providers?.some(p => p.isCoinbaseWallet));
+  
+  if(isCoinbase) {
+    try {
+      setWalletLoading(true);
+      const provider = window.ethereum.isCoinbaseWallet 
+        ? window.ethereum 
+        : window.ethereum.providers.find(p => p.isCoinbaseWallet);
+      const accounts = await provider.request({ method: 'eth_requestAccounts' });
+      setWalletConnected(accounts[0], 'Coinbase');
+    } catch(err) {
+      setWalletLoading(false);
+      showToast('Coinbase Wallet error: ' + (err.message || 'Rejected'), 'error');
+    }
+  } else {
+    showToast('Coinbase Wallet not detected. Opening app store...', 'info');
+    const isMobile = /iPhone|iPad|Android/.test(navigator.userAgent);
+    setTimeout(() => {
+      if(isMobile) {
+        window.open('https://go.cb-w.com/dapp?cb_url=' + encodeURIComponent(window.location.href), '_blank');
+      } else {
+        window.open('https://www.coinbase.com/wallet/downloads', '_blank');
+      }
+    }, 800);
+  }
+}
+
+function setWalletLoading(on) {
+  const btn = document.getElementById('wallet-btn');
+  if(on) {
+    btn.innerHTML = `<span class="w-4 h-4 border-2 border-on-primary border-t-transparent rounded-full spinner inline-block mr-2"></span>Connecting...`;
+    btn.disabled = true;
+  } else {
+    btn.innerHTML = 'Connect Wallet';
+    btn.disabled = false;
+  }
+}
+
+function setWalletConnected(address, provider) {
+  state.walletConnected = true;
+  state.walletProvider = provider;
+  state.walletAddress = address;
+  // Check if user already has a role saved for this wallet
+  const saved = localStorage.getItem('forge_profile_' + address.toLowerCase());
+  if(saved) {
+    const profile = JSON.parse(saved);
+    state.userRole    = profile.role;
+    state.userProfile = profile;
+    updateNavForRole(profile.role);
+  } else {
+    // First time — show role selection
+    setTimeout(() => showRoleSelection(address), 600);
+  }
+  const display = address.length > 15 
+    ? address.slice(0,6) + '...' + address.slice(-4) 
+    : address;
+  const btn = document.getElementById('wallet-btn');
+  btn.disabled = false;
+  btn.innerHTML = `<span class="w-2 h-2 rounded-full bg-primary-fixed-dim inline-block mr-1.5 pulse-green"></span>${display}`;
+  btn.className = 'border border-primary-fixed-dim/50 text-primary-fixed-dim px-3 py-1.5 rounded-lg font-bold hover:scale-[0.98] transition-transform text-xs lg:text-sm lg:px-4 lg:py-2 font-label-mono hidden md:flex items-center';
+  const mBtn = document.getElementById('mobile-wallet-btn');
+  if(mBtn) { mBtn.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed-dim inline-block mr-1 pulse-green"></span>${display}`; }
+  showToast(`${provider} connected!`, 'success');
+  addChainEntry('Wallet Connected', display, 'AUTH', '0x' + randomHex(8));
+}
+
+function handleAccountsChanged(accounts) {
+  if(!accounts.length) {
+    disconnectWallet();
+  } else {
+    const display = accounts[0].slice(0,6) + '...' + accounts[0].slice(-4);
+    state.walletAddress = accounts[0];
+    document.getElementById('wallet-btn').innerHTML = 
+      `<span class="w-2 h-2 rounded-full bg-primary-fixed-dim inline-block mr-1.5 pulse-green"></span>${display}`;
+    showToast('Account switched to ' + display, 'info');
+  }
+}
+
+function handleChainChanged(chainId) {
+  const isMantle = chainId === MANTLE_CHAIN_ID || chainId === MANTLE_TESTNET_CHAIN_ID;
+  if(!isMantle) {
+    showToast('Warning: Not on Mantle network. Switch to Mantle for full functionality.', 'error');
+  } else {
+    showToast('Network: Mantle ✓', 'success');
+  }
+}
+
+function disconnectWallet() {
+  // Remove listeners if MetaMask
+  if(state.walletProvider === 'MetaMask' && typeof window.ethereum !== 'undefined') {
+    window.ethereum.removeListener('accountsChanged', handleAccountsChanged);
+    window.ethereum.removeListener('chainChanged', handleChainChanged);
+  }
+  state.walletConnected = false;
+  state.walletAddress = null;
+  state.walletProvider = null;
+  const btn = document.getElementById('wallet-btn');
+  btn.textContent = 'Connect Wallet';
+  btn.className = 'bg-primary-fixed-dim text-on-primary px-3 py-1.5 rounded-lg font-bold hover:scale-[0.98] transition-transform text-xs lg:text-sm lg:px-4 lg:py-2 hidden md:block';
+  const mBtn = document.getElementById('mobile-wallet-btn');
+  if(mBtn) { mBtn.textContent = 'Connect Wallet'; mBtn.className = 'bg-primary-fixed-dim text-on-primary px-3 py-2 rounded-lg font-bold text-xs flex-1 justify-center flex items-center'; }
+  btn.disabled = false;
+  const d = document.getElementById('wallet-dropdown');
+  if(d) d.remove();
+  showToast('Wallet disconnected', 'info');
+}
+
+// ========================
+// SEARCH
+// ========================
+function handleSearch(val) {
+  if(!val.trim()) return;
+  showSection('contributors');
+  document.getElementById('contributor-search').value = val;
+  filterContributors();
+}
+
+// ========================
+// PROJECTS
+// ========================
+function renderProjects(filter='all') {
+  const grid = document.getElementById('projects-grid');
+  const filtered = filter === 'all' ? state.projects : state.projects.filter(p=>p.status===filter);
+  if(!filtered.length) {
+    grid.innerHTML = `<div class="col-span-3 text-center py-16 text-on-surface-variant"><span class="material-symbols-outlined text-5xl block mb-4 opacity-30">inbox</span>No projects found.</div>`;
+    return;
+  }
+  grid.innerHTML = filtered.map(p => `
+    <div class="glass-card rounded-2xl p-6 hover-card cursor-pointer flex flex-col gap-4" onclick="openProjectDetail(${p.id})">
+      <div class="flex items-start justify-between gap-3">
+        <h3 class="font-sora font-semibold text-base leading-tight">${p.title}</h3>
+        <span class="px-2 py-0.5 rounded-full text-[11px] font-label-mono shrink-0 ${p.status==='open'?'bg-primary-fixed-dim/10 text-primary-fixed-dim':p.status==='active'?'bg-secondary-container/20 text-secondary':'bg-surface-bright text-on-surface-variant'}">${p.status.toUpperCase()}</span>
+      </div>
+      <p class="text-sm text-on-surface-variant truncate-2">${p.description}</p>
+      <div class="flex flex-wrap gap-1.5">
+        ${p.skills.slice(0,3).map(s=>`<span class="px-2 py-0.5 bg-surface-bright border border-outline-variant rounded-full text-[11px] font-label-mono">${s}</span>`).join('')}
+        ${p.skills.length>3?`<span class="px-2 py-0.5 text-on-surface-variant text-[11px]">+${p.skills.length-3}</span>`:''}
+      </div>
+      <div class="flex items-center justify-between pt-3 border-t border-outline-variant">
+        <div class="flex items-center gap-4">
+          <div>
+            <div class="text-xs text-on-surface-variant font-label-mono">BUDGET</div>
+            <div class="font-bold text-primary-fixed-dim text-sm">${p.budget}</div>
+          </div>
+          <div>
+            <div class="text-xs text-on-surface-variant font-label-mono">TIMELINE</div>
+            <div class="font-bold text-sm">${p.timeline}</div>
+          </div>
+        </div>
+        ${p.status==='active' ? `
+        <div class="text-right">
+          <div class="text-[10px] font-label-mono text-on-surface-variant mb-1">PROGRESS</div>
+          <div class="progress-bar w-20"><div class="progress-fill" style="width:${Math.round((p.completedMilestones.length/p.milestones.length)*100)}%"></div></div>
+        </div>` : ''}
+        ${p.status==='open' ? `<button onclick="event.stopPropagation();openProjectDetail(${p.id})" class="text-xs font-bold text-primary-fixed-dim hover:underline">View →</button>` : ''}
+        ${p.status==='completed' ? `<span class="text-[11px] font-label-mono text-primary-fixed-dim flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">verified</span>DONE</span>` : ''}
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterProjects(filter) {
+  document.querySelectorAll('[id^="pfilter-"]').forEach(b=>b.classList.remove('active'));
+  document.getElementById('pfilter-'+filter).classList.add('active');
+  renderProjects(filter);
+}
+
+function openProjectDetail(id) {
+  const p = state.projects.find(x=>x.id===id);
+  if(!p) return;
+  const pct = p.completedMilestones.length > 0 ? Math.round((p.completedMilestones.length/p.milestones.length)*100) : 0;
+  document.getElementById('project-detail-content').innerHTML = `
+    <div class="p-8">
+      <div class="flex items-start justify-between gap-4 mb-6">
+        <div>
+          <span class="text-xs font-label-mono text-on-surface-variant">PROJECT #${String(p.id).padStart(3,'0')}</span>
+          <h2 class="font-sora font-bold text-2xl mt-1">${p.title}</h2>
+        </div>
+        <button onclick="closeModal('modal-project-detail')" class="text-on-surface-variant hover:text-on-surface">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <p class="text-on-surface-variant mb-6">${p.description}</p>
+      <div class="grid grid-cols-3 gap-4 mb-6">
+        <div class="bg-surface-container-high p-4 rounded-xl">
+          <div class="text-xs font-label-mono text-on-surface-variant mb-1">BUDGET</div>
+          <div class="font-bold text-primary-fixed-dim">${p.budget}</div>
+        </div>
+        <div class="bg-surface-container-high p-4 rounded-xl">
+          <div class="text-xs font-label-mono text-on-surface-variant mb-1">TIMELINE</div>
+          <div class="font-bold">${p.timeline}</div>
+        </div>
+        <div class="bg-surface-container-high p-4 rounded-xl">
+          <div class="text-xs font-label-mono text-on-surface-variant mb-1">STATUS</div>
+          <div class="font-bold capitalize">${p.status}</div>
+        </div>
+      </div>
+      <div class="mb-6">
+        <div class="text-xs font-label-mono text-on-surface-variant mb-3">REQUIRED SKILLS</div>
+        <div class="flex flex-wrap gap-2">
+          ${p.skills.map(s=>`<span class="px-3 py-1 bg-surface-bright border border-outline-variant rounded-full text-xs font-label-mono">${s}</span>`).join('')}
+        </div>
+      </div>
+      ${p.contributor ? `<div class="bg-surface-container-high p-4 rounded-xl mb-6 flex items-center gap-3">
+        <span class="material-symbols-outlined text-primary-fixed-dim">person_check</span>
+        <div><div class="text-xs font-label-mono text-on-surface-variant">ASSIGNED CONTRIBUTOR</div><div class="font-bold">${p.contributor}</div></div>
+        ${p.matchScore ? `<span class="ml-auto text-primary-fixed-dim font-bold font-label-mono">${p.matchScore}% MATCH</span>` : ''}
+      </div>` : ''}
+      <div class="mb-6">
+        <div class="flex items-center justify-between mb-3">
+          <div class="text-xs font-label-mono text-on-surface-variant">MILESTONES</div>
+          <div class="text-xs font-label-mono text-primary-fixed-dim">${p.completedMilestones.length}/${p.milestones.length} COMPLETE</div>
+        </div>
+        <div class="progress-bar mb-4"><div class="progress-fill" style="width:${pct}%"></div></div>
+        <div class="space-y-2">
+          ${p.milestones.map((m,i)=>`
+            <div class="milestone-item ${p.completedMilestones.includes(i)?'completed':''} flex items-center gap-3">
+              <span class="material-symbols-outlined text-[18px] ${p.completedMilestones.includes(i)?'text-primary-fixed-dim':'text-on-surface-variant'}">${p.completedMilestones.includes(i)?'check_circle':'radio_button_unchecked'}</span>
+              <span class="text-sm ${p.completedMilestones.includes(i)?'line-through text-on-surface-variant':''}">${m}</span>
+              ${p.status==='active' && !p.completedMilestones.includes(i) ? `<button onclick="completeMilestone(${p.id},${i})" class="ml-auto text-xs font-bold text-primary-fixed-dim hover:underline">Approve</button>` : ''}
+            </div>
+          `).join('')}
+        </div>
+      </div>
+      <div class="flex gap-3">
+        ${p.status==='open' ? `<button onclick="closeModal('modal-project-detail');runAgentEval(${p.id})" class="flex-1 bg-primary-fixed-dim text-on-primary py-3 rounded-xl font-bold text-sm">Run Agent Evaluation</button>` : ''}
+        ${p.status==='active' && p.escrowLocked ? `<div class="flex-1 flex items-center gap-2 justify-center bg-surface-container-high p-3 rounded-xl text-sm text-on-surface-variant"><span class="material-symbols-outlined text-[18px] text-primary-fixed-dim">lock</span>Escrow Locked</div>` : ''}
+        <button onclick="closeModal('modal-project-detail')" class="px-6 py-3 border border-outline-variant rounded-xl text-sm font-bold hover:bg-surface-bright transition-colors">Close</button>
+      </div>
+    </div>
+  `;
+  openModal('modal-project-detail');
+}
+
+function completeMilestone(projectId, milestoneIndex) {
+  const p = state.projects.find(x=>x.id===projectId);
+  if(!p || p.completedMilestones.includes(milestoneIndex)) return;
+  p.completedMilestones.push(milestoneIndex);
+  addChainEntry(`Milestone Approved: "${p.milestones[milestoneIndex]}"`, p.title, 'MILESTONE', '0x'+randomHex(8));
+  showToast(`Milestone approved! Escrow release triggered.`, 'success');
+  if(p.completedMilestones.length === p.milestones.length) {
+    p.status = 'completed'; p.escrowLocked = false;
+    showToast(`Project complete! Final payment released.`, 'success');
+  }
+  openProjectDetail(projectId);
+  renderProjects();
+}
+
+// ========================
+// CONTRIBUTORS
+// ========================
+function renderContributors(list) {
+  const grid = document.getElementById('contributors-grid');
+  const items = list || state.contributors;
+  grid.innerHTML = items.map(c => `
+    <div class="glass-card rounded-2xl p-6 hover-card cursor-pointer" onclick="openContributorProfile(${c.id})">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="w-12 h-12 rounded-xl bg-surface-container-high border border-outline-variant flex items-center justify-center text-2xl">${c.avatar}</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2">
+            <h3 class="font-sora font-semibold text-base">${c.name}</h3>
+            ${c.githubVerified ? '<span class="material-symbols-outlined text-primary-fixed-dim text-[16px]" title="GitHub Verified">verified</span>' : ''}
+          </div>
+          <div class="text-xs text-on-surface-variant font-label-mono">${c.handle}</div>
+        </div>
+        <div class="text-right shrink-0">
+          <div class="text-primary-fixed-dim font-bold font-sora">${c.repScore}</div>
+          <div class="text-[10px] font-label-mono text-on-surface-variant">REP</div>
+        </div>
+      </div>
+      <div class="text-sm text-on-surface-variant mb-4 truncate-2">${c.role} — ${c.specialization}</div>
+      <div class="flex flex-wrap gap-1.5 mb-4">
+        ${c.skills.slice(0,4).map(s=>`<span class="px-2 py-0.5 bg-surface-bright border border-outline-variant rounded-full text-[11px] font-label-mono">${s}</span>`).join('')}
+      </div>
+      <div class="flex items-center justify-between pt-3 border-t border-outline-variant text-xs">
+        <span class="text-on-surface-variant font-label-mono"><span class="text-on-surface font-bold">${c.projectsCompleted}</span> projects</span>
+        <span class="text-on-surface-variant font-label-mono"><span class="text-primary-fixed-dim font-bold">${c.completionRate}%</span> completion</span>
+        <span class="text-primary-fixed-dim font-bold font-label-mono">${c.experience}</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterContributors() {
+  const search = document.getElementById('contributor-search')?.value.toLowerCase() || '';
+  const skill = document.getElementById('skill-filter')?.value || '';
+  const filtered = state.contributors.filter(c => {
+    const matchSearch = !search || c.name.toLowerCase().includes(search) || c.skills.some(s=>s.toLowerCase().includes(search)) || c.specialization.toLowerCase().includes(search);
+    const matchSkill = !skill || c.skills.includes(skill);
+    return matchSearch && matchSkill;
+  });
+  renderContributors(filtered);
+}
+
+function openContributorProfile(id) {
+  const c = state.contributors.find(x=>x.id===id);
+  if(!c) return;
+  document.getElementById('contributor-modal-content').innerHTML = `
+    <div class="p-8">
+      <div class="flex items-start justify-between mb-6">
+        <div class="flex items-center gap-4">
+          <div class="w-16 h-16 rounded-2xl bg-surface-container-high border border-outline-variant flex items-center justify-center text-3xl">${c.avatar}</div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h2 class="font-sora font-bold text-xl">${c.name}</h2>
+              ${c.githubVerified ? '<span class="material-symbols-outlined text-primary-fixed-dim text-[18px]">verified</span>' : ''}
+            </div>
+            <div class="text-sm text-on-surface-variant">${c.handle}</div>
+            <div class="text-sm font-semibold mt-1">${c.role}</div>
+          </div>
+        </div>
+        <button onclick="closeModal('modal-contributor')" class="text-on-surface-variant hover:text-on-surface">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <p class="text-on-surface-variant text-sm mb-6">${c.bio}</p>
+      <div class="grid grid-cols-3 gap-3 mb-6">
+        <div class="bg-surface-container-high p-3 rounded-xl text-center">
+          <div class="text-primary-fixed-dim font-bold font-sora text-xl">${c.repScore}</div>
+          <div class="text-[10px] font-label-mono text-on-surface-variant">REP SCORE</div>
+        </div>
+        <div class="bg-surface-container-high p-3 rounded-xl text-center">
+          <div class="font-bold font-sora text-xl">${c.projectsCompleted}</div>
+          <div class="text-[10px] font-label-mono text-on-surface-variant">PROJECTS</div>
+        </div>
+        <div class="bg-surface-container-high p-3 rounded-xl text-center">
+          <div class="text-primary-fixed-dim font-bold font-sora text-xl">${c.completionRate}%</div>
+          <div class="text-[10px] font-label-mono text-on-surface-variant">COMPLETION</div>
+        </div>
+      </div>
+      <div class="mb-5">
+        <div class="text-xs font-label-mono text-on-surface-variant mb-3">SKILLS</div>
+        <div class="flex flex-wrap gap-2">
+          ${c.skills.map(s=>`<span class="px-3 py-1 bg-surface-bright border border-outline-variant rounded-full text-xs font-label-mono">${s}</span>`).join('')}
+        </div>
+      </div>
+      ${c.certifications.length ? `<div class="mb-6">
+        <div class="text-xs font-label-mono text-on-surface-variant mb-3">CERTIFICATIONS</div>
+        <div class="flex flex-wrap gap-2">
+          ${c.certifications.map(cert=>`<span class="flex items-center gap-1 px-3 py-1 bg-primary-fixed-dim/10 border border-primary-fixed-dim/30 rounded-full text-xs text-primary-fixed-dim font-label-mono"><span class="material-symbols-outlined text-[12px]">workspace_premium</span>${cert}</span>`).join('')}
+        </div>
+      </div>` : ''}
+      <div class="flex gap-3">
+        <button onclick="closeModal('modal-contributor');openNegotiation(${c.id})" class="flex-1 bg-primary-fixed-dim text-on-primary py-3 rounded-xl font-bold text-sm">Invite to Project</button>
+        <button onclick="closeModal('modal-contributor')" class="px-6 py-3 border border-outline-variant rounded-xl text-sm font-bold hover:bg-surface-bright transition-colors">Close</button>
+      </div>
+    </div>
+  `;
+  openModal('modal-contributor');
+}
+
+// ========================
+// AGENTS
+// ========================
+function renderAgents() {
+  const grid = document.getElementById('agents-grid');
+  grid.innerHTML = state.agents.map(a => `
+    <div class="glass-card rounded-2xl p-6 hover-card">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-14 h-14 rounded-xl bg-surface-bright border border-outline-variant flex items-center justify-center">
+          <span class="material-symbols-outlined text-3xl text-primary-fixed-dim">smart_toy</span>
+        </div>
+        <div>
+          <h3 class="font-sora font-bold text-lg">Agent #${a.number} — ${a.name}</h3>
+          <span class="text-xs font-label-mono text-primary-fixed-dim">${a.tier}</span>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-3 mb-5">
+        <div class="p-3 bg-background rounded-xl border border-outline-variant">
+          <div class="text-xs font-label-mono text-on-surface-variant mb-1">FORGE STAKED</div>
+          <div class="font-bold text-sm">${a.stake}</div>
+        </div>
+        <div class="p-3 bg-background rounded-xl border border-outline-variant">
+          <div class="text-xs font-label-mono text-on-surface-variant mb-1">ACCURACY</div>
+          <div class="font-bold text-sm text-primary-fixed-dim">${a.accuracy}%</div>
+        </div>
+        <div class="p-3 bg-background rounded-xl border border-outline-variant">
+          <div class="text-xs font-label-mono text-on-surface-variant mb-1">MATCHES</div>
+          <div class="font-bold text-sm">${a.matchesMade}</div>
+        </div>
+        <div class="p-3 bg-background rounded-xl border border-outline-variant">
+          <div class="text-xs font-label-mono text-on-surface-variant mb-1">SUCCESS RATE</div>
+          <div class="font-bold text-sm">${a.successRate}%</div>
+        </div>
+      </div>
+      <div class="mb-4">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-label-mono text-on-surface-variant">REPUTATION</span>
+          <span class="text-xs font-bold text-primary-fixed-dim">${a.repScore}/5</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" style="width:${(a.repScore/5)*100}%"></div></div>
+      </div>
+      <div>
+        <div class="text-xs font-label-mono text-on-surface-variant mb-3">RECENT ACTIVITY</div>
+        <div class="space-y-2">
+          ${a.recentActivity.slice(0,3).map(act=>`
+            <div class="flex justify-between items-center text-xs font-label-mono p-2 bg-surface-container-low rounded-lg">
+              <span class="text-on-surface truncate mr-2">${act.action}</span>
+              <span class="${act.rep.startsWith('+') ? 'text-primary-fixed-dim' : 'text-error'} shrink-0">${act.rep} REP</span>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ========================
+// CHAIN LOG
+// ========================
+function addChainEntry(action, subject, type, hash) {
+  state.chainLog.unshift({ action, subject, type, hash, timestamp: new Date().toISOString(), block: 4821033 + state.chainLog.length });
+  document.getElementById('block-height').textContent = (4821033 + state.chainLog.length).toLocaleString();
+}
+
+function renderChainLog() {
+  const el = document.getElementById('chain-log');
+  const entries = [...state.chainLog];
+  if(!entries.length) {
+    el.innerHTML = `<div class="text-center py-10 text-on-surface-variant text-sm">No on-chain events yet. Interact with the platform to generate records.</div>`;
+    return;
+  }
+  el.innerHTML = entries.map(e => `
+    <div class="chain-entry fade-in">
+      <div class="flex items-center gap-3">
+        <span class="px-2 py-0.5 bg-surface-container-high border border-outline-variant rounded text-[10px] font-label-mono text-primary-fixed-dim shrink-0">${e.type}</span>
+        <span class="text-[12px] text-on-surface font-semibold">${e.action}</span>
+        <span class="ml-auto text-[10px] text-on-surface-variant font-label-mono shrink-0">${formatTime(e.timestamp)}</span>
+      </div>
+      <div class="flex items-center gap-4 mt-1 pl-1">
+        <span class="text-[11px] text-on-surface-variant">${e.subject}</span>
+        <span class="text-[10px] text-primary-fixed-dim/60 font-label-mono">HASH: ${e.hash}</span>
+        <span class="text-[10px] text-on-surface-variant/60 font-label-mono">BLOCK #{e.block}</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+function formatTime(iso) {
+  const d = new Date(iso);
+  return d.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit',second:'2-digit'});
+}
+
+// ========================
+// CREATE PROJECT FLOW
+// ========================
+const projectSteps = {
+  1: () => `
+    <div class="fade-in">
+      <h3 class="font-sora font-bold text-xl mb-1">Define Your Project</h3>
+      <p class="text-sm text-on-surface-variant mb-6">What do you need built?</p>
+      <div class="space-y-4">
+        <div>
+          <label class="text-xs font-label-mono text-on-surface-variant block mb-2">PROJECT TITLE *</label>
+          <input id="p-title" type="text" class="forge-input" placeholder="e.g. Mantle Analytics Dashboard" value="${state.newProject.title||''}"/>
+        </div>
+        <div>
+          <label class="text-xs font-label-mono text-on-surface-variant block mb-2">DESCRIPTION *</label>
+          <textarea id="p-desc" class="forge-input" rows="4" placeholder="Describe what you need in detail...">${state.newProject.description||''}</textarea>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="text-xs font-label-mono text-on-surface-variant block mb-2">BUDGET (USD) *</label>
+            <input id="p-budget" type="text" class="forge-input" placeholder="$5,000" value="${state.newProject.budget||''}"/>
+          </div>
+          <div>
+            <label class="text-xs font-label-mono text-on-surface-variant block mb-2">TIMELINE *</label>
+            <input id="p-timeline" type="text" class="forge-input" placeholder="4 Weeks" value="${state.newProject.timeline||''}"/>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-end mt-6">
+        <button onclick="projectStepNext(1)" class="bg-primary-fixed-dim text-on-primary px-6 py-2.5 rounded-lg font-bold text-sm">Next: Add Skills →</button>
+      </div>
+    </div>
+  `,
+  2: () => `
+    <div class="fade-in">
+      <h3 class="font-sora font-bold text-xl mb-1">Required Skills</h3>
+      <p class="text-sm text-on-surface-variant mb-6">What skills should the agent look for?</p>
+      <div class="space-y-4">
+        <div>
+          <label class="text-xs font-label-mono text-on-surface-variant block mb-2">ADD SKILL (press Enter)</label>
+          <input id="p-skill-input" type="text" class="forge-input" placeholder="e.g. React, Figma, Solidity..." onkeydown="addProjectSkill(event)"/>
+          <div id="p-skills-tags" class="flex flex-wrap gap-2 mt-3">
+            ${(state.projectSkills||[]).map((s,i)=>`<span class="skill-tag">${s} <span class="remove" onclick="removeProjectSkill(${i})">×</span></span>`).join('')}
+          </div>
+        </div>
+        <div>
+          <label class="text-xs font-label-mono text-on-surface-variant block mb-2">MILESTONES (one per line) *</label>
+          <textarea id="p-milestones" class="forge-input" rows="5" placeholder="Discovery & wireframes&#10;Core development&#10;Integration & testing&#10;Launch">${state.newProject.milestonesRaw||''}</textarea>
+        </div>
+      </div>
+      <div class="flex justify-between mt-6">
+        <button onclick="renderProjectStep(1)" class="px-6 py-2.5 border border-outline-variant rounded-lg font-bold text-sm hover:bg-surface-bright transition-colors">← Back</button>
+        <button onclick="projectStepNext(2)" class="bg-primary-fixed-dim text-on-primary px-6 py-2.5 rounded-lg font-bold text-sm">Next: Lock Escrow →</button>
+      </div>
+    </div>
+  `,
+  3: () => `
+    <div class="fade-in">
+      <h3 class="font-sora font-bold text-xl mb-1">Fund Escrow</h3>
+      <p class="text-sm text-on-surface-variant mb-6">Lock payment in a Mantle smart contract. Funds release only on milestone approval.</p>
+      <div class="bg-surface-container-high border border-outline-variant rounded-2xl p-6 mb-6">
+        <div class="flex items-center justify-between mb-4">
+          <span class="font-label-mono text-sm text-on-surface-variant">ESCROW AMOUNT</span>
+          <span class="font-sora font-bold text-primary-fixed-dim text-xl">${state.newProject.budget || '$0'}</span>
+        </div>
+        <div class="flex items-center justify-between mb-4">
+          <span class="font-label-mono text-sm text-on-surface-variant">PLATFORM FEE (2%)</span>
+          <span class="font-bold text-sm">${calcFee(state.newProject.budget)}</span>
+        </div>
+        <div class="border-t border-outline-variant pt-4 flex items-center justify-between">
+          <span class="font-label-mono text-sm text-on-surface">TOTAL DUE</span>
+          <span class="font-sora font-bold text-xl">${calcTotal(state.newProject.budget)}</span>
+        </div>
+      </div>
+      <div class="glass-card p-4 rounded-xl border-l-4 border-l-primary-fixed-dim mb-6">
+        <div class="flex items-center gap-2 text-sm">
+          <span class="material-symbols-outlined text-primary-fixed-dim text-[18px]">lock</span>
+          <span class="text-on-surface-variant">Funds will be held by Mantle escrow contract <span class="font-label-mono text-[11px] text-primary-fixed-dim">0x${randomHex(8)}...${randomHex(4)}</span></span>
+        </div>
+      </div>
+      ${!state.walletConnected ? `<div class="bg-error/10 border border-error/30 rounded-xl p-4 mb-4 text-sm text-error flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">warning</span>Connect your wallet to lock escrow.</div>` : ''}
+      <div class="flex justify-between mt-2">
+        <button onclick="renderProjectStep(2)" class="px-6 py-2.5 border border-outline-variant rounded-lg font-bold text-sm hover:bg-surface-bright transition-colors">← Back</button>
+        <button onclick="projectStepNext(3)" class="bg-primary-fixed-dim text-on-primary px-6 py-2.5 rounded-lg font-bold text-sm">Lock Escrow & Post →</button>
+      </div>
+    </div>
+  `,
+  4: () => `
+    <div class="fade-in text-center">
+      <div class="w-16 h-16 rounded-full bg-primary-fixed-dim/10 border border-primary-fixed-dim/30 flex items-center justify-center mx-auto mb-6">
+        <span class="material-symbols-outlined text-3xl text-primary-fixed-dim">check_circle</span>
+      </div>
+      <h3 class="font-sora font-bold text-2xl mb-2">Project Posted!</h3>
+      <p class="text-on-surface-variant mb-6">Your project is live. The agent will begin evaluating contributors immediately.</p>
+      <div class="glass-card rounded-xl p-5 text-left mb-6">
+        <div class="font-label-mono text-xs text-on-surface-variant mb-1">ON-CHAIN RECORD</div>
+        <div class="font-bold">${state.newProject.title}</div>
+        <div class="font-label-mono text-[11px] text-primary-fixed-dim mt-1">TX: 0x${randomHex(16)}</div>
+        <div class="flex items-center gap-1 mt-1 text-[11px] font-label-mono text-on-surface-variant">
+          <span class="material-symbols-outlined text-[12px] text-primary-fixed-dim">database</span> Recorded on Mantle
+        </div>
+      </div>
+      <div class="flex gap-3 justify-center">
+        <button onclick="closeModal('modal-create-project');showSection('projects')" class="bg-primary-fixed-dim text-on-primary px-6 py-2.5 rounded-lg font-bold text-sm">View Projects</button>
+        <button onclick="closeModal('modal-create-project')" class="px-6 py-2.5 border border-outline-variant rounded-lg font-bold text-sm hover:bg-surface-bright transition-colors">Done</button>
+      </div>
+    </div>
+  `
+};
+
+function renderProjectStep(n) {
+  state.currentProjectStep = n;
+  document.getElementById('project-step-content').innerHTML = projectSteps[n]();
+  // Update step indicators
+  for(let i=1;i<=4;i++) {
+    const dot = document.getElementById(`pstep-${i}`);
+    if(i < n) { dot.className='step-dot done'; dot.innerHTML='<span class="material-symbols-outlined text-[14px]">check</span>'; }
+    else if(i === n) { dot.className='step-dot active'; dot.textContent=i; }
+    else { dot.className='step-dot'; dot.textContent=i; }
+  }
+  for(let i=1;i<=3;i++) {
+    const line = document.getElementById(`pline-${i}`);
+    if(line) line.className = `step-line${i < n ? ' done' : ''}`;
+  }
+}
+
+function projectStepNext(step) {
+  if(step === 1) {
+    const title = document.getElementById('p-title').value.trim();
+    const desc = document.getElementById('p-desc').value.trim();
+    const budget = document.getElementById('p-budget').value.trim();
+    const timeline = document.getElementById('p-timeline').value.trim();
+    if(!title || !desc || !budget || !timeline) { showToast('Please fill in all required fields.', 'error'); return; }
+    Object.assign(state.newProject, { title, description: desc, budget, timeline });
+    renderProjectStep(2);
+  } else if(step === 2) {
+    const ms = document.getElementById('p-milestones').value.trim();
+    if(!ms || state.projectSkills.length === 0) { showToast('Add at least one skill and milestone.', 'error'); return; }
+    state.newProject.milestonesRaw = ms;
+    state.newProject.milestones = ms.split('\n').filter(Boolean);
+    state.newProject.skills = [...state.projectSkills];
+    renderProjectStep(3);
+  } else if(step === 3) {
+    if(!state.walletConnected) { showToast('Connect wallet to lock escrow.', 'error'); return; }
+    // Create the project
+    const newId = Math.max(...state.projects.map(p=>p.id)) + 1;
+    state.projects.unshift({
+      id: newId,
+      title: state.newProject.title,
+      description: state.newProject.description,
+      budget: state.newProject.budget,
+      timeline: state.newProject.timeline,
+      skills: state.newProject.skills,
+      milestones: state.newProject.milestones,
+      completedMilestones: [],
+      status: 'open', matchScore: null, contributor: null, escrowLocked: true, postedAt: 'just now'
+    });
+    addChainEntry(`Project Created: "${state.newProject.title}"`, state.walletAddress, 'ESCROW', '0x'+randomHex(8));
+    state.newProject = {}; state.projectSkills = [];
+    renderProjectStep(4);
+  }
+}
+
+function openCreateProject() {
+  state.newProject = {}; state.projectSkills = [];
+  openModal('modal-create-project');
+  renderProjectStep(1);
+}
+
+function addProjectSkill(e) {
+  if(e.key !== 'Enter' && e.keyCode !== 13) return;
+  e.preventDefault();
+  const val = e.target.value.trim();
+  if(!val || state.projectSkills.includes(val)) return;
+  state.projectSkills.push(val);
+  e.target.value = '';
+  document.getElementById('p-skills-tags').innerHTML = state.projectSkills.map((s,i)=>`<span class="skill-tag">${s} <span class="remove" onclick="removeProjectSkill(${i})">×</span></span>`).join('');
+}
+
+function removeProjectSkill(i) {
+  state.projectSkills.splice(i, 1);
+  document.getElementById('p-skills-tags').innerHTML = state.projectSkills.map((s,i)=>`<span class="skill-tag">${s} <span class="remove" onclick="removeProjectSkill(${i})">×</span></span>`).join('');
+}
+
+// ========================
+// ONBOARDING FLOW
+// ========================
+const onboardingSteps = {
+  1: () => `
+    <div class="fade-in">
+      <h3 class="font-sora font-bold text-xl mb-1">Create Your Profile</h3>
+      <p class="text-sm text-on-surface-variant mb-6">Build your AI-verified talent profile.</p>
+      <div class="space-y-4">
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="text-xs font-label-mono text-on-surface-variant block mb-2">FULL NAME *</label>
+            <input id="o-name" type="text" class="forge-input" placeholder="Your name" value="${state.newContributor.name||''}"/>
+          </div>
+          <div>
+            <label class="text-xs font-label-mono text-on-surface-variant block mb-2">HANDLE *</label>
+            <input id="o-handle" type="text" class="forge-input" placeholder="@yourhandle" value="${state.newContributor.handle||''}"/>
+          </div>
+        </div>
+        <div>
+          <label class="text-xs font-label-mono text-on-surface-variant block mb-2">ROLE / TITLE *</label>
+          <input id="o-role" type="text" class="forge-input" placeholder="e.g. Senior Smart Contract Developer" value="${state.newContributor.role||''}"/>
+        </div>
+        <div>
+          <label class="text-xs font-label-mono text-on-surface-variant block mb-2">BIO</label>
+          <textarea id="o-bio" class="forge-input" rows="3" placeholder="What makes you stand out?">${state.newContributor.bio||''}</textarea>
+        </div>
+        <div>
+          <label class="text-xs font-label-mono text-on-surface-variant block mb-2">YEARS OF EXPERIENCE</label>
+          <select id="o-exp" class="forge-input">
+            <option>1-2 years</option><option>3-4 years</option><option>5-6 years</option><option>7+ years</option>
+          </select>
+        </div>
+      </div>
+      <div class="flex justify-end mt-6">
+        <button onclick="onboardingStepNext(1)" class="bg-primary-fixed-dim text-on-primary px-6 py-2.5 rounded-lg font-bold text-sm">Next: Skills & Links →</button>
+      </div>
+    </div>
+  `,
+  2: () => `
+    <div class="fade-in">
+      <h3 class="font-sora font-bold text-xl mb-1">Skills & Portfolio</h3>
+      <p class="text-sm text-on-surface-variant mb-6">The agent will use this to evaluate your fit.</p>
+      <div class="space-y-4">
+        <div>
+          <label class="text-xs font-label-mono text-on-surface-variant block mb-2">SKILLS (press Enter)</label>
+          <input id="o-skill-input" type="text" class="forge-input" placeholder="e.g. Solidity, React..." onkeydown="addContribSkill(event)"/>
+          <div id="o-skills-tags" class="flex flex-wrap gap-2 mt-3">
+            ${(state.contributorSkills||[]).map((s,i)=>`<span class="skill-tag">${s} <span class="remove" onclick="removeContribSkill(${i})">×</span></span>`).join('')}
+          </div>
+        </div>
+        <div>
+          <label class="text-xs font-label-mono text-on-surface-variant block mb-2">GITHUB URL</label>
+          <input id="o-github" type="text" class="forge-input" placeholder="https://github.com/yourhandle" value="${state.newContributor.github||''}"/>
+        </div>
+        <div>
+          <label class="text-xs font-label-mono text-on-surface-variant block mb-2">PORTFOLIO / WEBSITE</label>
+          <input id="o-portfolio" type="text" class="forge-input" placeholder="https://yoursite.xyz" value="${state.newContributor.portfolio||''}"/>
+        </div>
+        <div>
+          <label class="text-xs font-label-mono text-on-surface-variant block mb-2">UPLOAD RESUME (simulated)</label>
+          <div class="drop-zone" onclick="simulateUpload(this)">
+            <span class="material-symbols-outlined text-3xl text-on-surface-variant mb-2 block">upload_file</span>
+            <p class="text-sm text-on-surface-variant">Click to upload PDF, DOCX</p>
+            <p class="text-xs text-on-surface-variant/60 mt-1" id="upload-status">No file selected</p>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-between mt-6">
+        <button onclick="renderOnboardingStep(1)" class="px-6 py-2.5 border border-outline-variant rounded-lg font-bold text-sm hover:bg-surface-bright transition-colors">← Back</button>
+        <button onclick="onboardingStepNext(2)" class="bg-primary-fixed-dim text-on-primary px-6 py-2.5 rounded-lg font-bold text-sm">Generate AI Profile →</button>
+      </div>
+    </div>
+  `,
+  3: () => `
+    <div class="fade-in text-center">
+      <div class="w-16 h-16 rounded-full bg-primary-fixed-dim/10 border border-primary-fixed-dim/30 flex items-center justify-center mx-auto mb-6">
+        <span class="material-symbols-outlined text-3xl text-primary-fixed-dim">verified_user</span>
+      </div>
+      <h3 class="font-sora font-bold text-2xl mb-2">Profile Created!</h3>
+      <p class="text-on-surface-variant mb-6">Your AI-verified talent profile is live on the Forge network.</p>
+      <div class="glass-card rounded-xl p-5 text-left mb-6">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-lg bg-surface-bright flex items-center justify-center text-xl">🧑‍💻</div>
+          <div>
+            <div class="font-bold">${state.newContributor.name || 'New Contributor'}</div>
+            <div class="text-xs text-on-surface-variant font-label-mono">${state.newContributor.handle || '@handle'}</div>
+          </div>
+          <span class="ml-auto flex items-center gap-1 text-xs font-label-mono text-primary-fixed-dim"><span class="material-symbols-outlined text-[14px]">verified</span>AI Verified</span>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          ${(state.contributorSkills||[]).map(s=>`<span class="px-2 py-0.5 bg-surface-bright border border-outline-variant rounded-full text-[11px] font-label-mono">${s}</span>`).join('')}
+        </div>
+        <div class="font-label-mono text-[11px] text-primary-fixed-dim mt-3">REGISTRY TX: 0x${randomHex(16)}</div>
+      </div>
+      <div class="flex gap-3 justify-center">
+        <button onclick="closeModal('modal-onboarding');showSection('contributors')" class="bg-primary-fixed-dim text-on-primary px-6 py-2.5 rounded-lg font-bold text-sm">View Profiles</button>
+        <button onclick="closeModal('modal-onboarding')" class="px-6 py-2.5 border border-outline-variant rounded-lg font-bold text-sm hover:bg-surface-bright transition-colors">Done</button>
+      </div>
+    </div>
+  `
+};
+
+function renderOnboardingStep(n) {
+  state.currentOnboardingStep = n;
+  document.getElementById('onboarding-step-content').innerHTML = onboardingSteps[n]();
+  for(let i=1;i<=3;i++) {
+    const dot = document.getElementById(`ostep-${i}`);
+    if(i < n) { dot.className='step-dot done'; dot.innerHTML='<span class="material-symbols-outlined text-[14px]">check</span>'; }
+    else if(i === n) { dot.className='step-dot active'; dot.textContent=i; }
+    else { dot.className='step-dot'; dot.textContent=i; }
+  }
+  for(let i=1;i<=2;i++) {
+    const line = document.getElementById(`oline-${i}`);
+    if(line) line.className = `step-line${i < n ? ' done' : ''}`;
+  }
+}
+
+function onboardingStepNext(step) {
+  if(step === 1) {
+    const name = document.getElementById('o-name').value.trim();
+    const handle = document.getElementById('o-handle').value.trim();
+    const role = document.getElementById('o-role').value.trim();
+    if(!name || !handle || !role) { showToast('Please fill in all required fields.', 'error'); return; }
+    Object.assign(state.newContributor, { name, handle, role, bio: document.getElementById('o-bio').value.trim(), experience: document.getElementById('o-exp').value });
+    renderOnboardingStep(2);
+  } else if(step === 2) {
+    if(state.contributorSkills.length < 2) { showToast('Add at least 2 skills.', 'error'); return; }
+    state.newContributor.github = document.getElementById('o-github').value.trim();
+    state.newContributor.portfolio = document.getElementById('o-portfolio').value.trim();
+    // Add to contributors
+    state.contributors.unshift({
+      id: Math.max(...state.contributors.map(c=>c.id))+1,
+      name: state.newContributor.name, handle: state.newContributor.handle, avatar: '🧑‍💻',
+      role: state.newContributor.role, skills: [...state.contributorSkills],
+      experience: state.newContributor.experience, completionRate: 100,
+      repScore: 0, projectsCompleted: 0, specialization: state.newContributor.role,
+      bio: state.newContributor.bio || 'New contributor on Forge AI.', githubVerified: !!state.newContributor.github, certifications: []
+    });
+    addChainEntry(`Talent Registered: "${state.newContributor.name}"`, state.newContributor.handle, 'REGISTRY', '0x'+randomHex(8));
+    state.contributorSkills = [];
+    renderOnboardingStep(3);
+  }
+}
+
+function openOnboarding() {
+  state.newContributor = {}; state.contributorSkills = [];
+  openModal('modal-onboarding');
+  renderOnboardingStep(1);
+}
+
+function addContribSkill(e) {
+  if(e.key !== 'Enter' && e.keyCode !== 13) return;
+  e.preventDefault();
+  const val = e.target.value.trim();
+  if(!val || state.contributorSkills.includes(val)) return;
+  state.contributorSkills.push(val);
+  e.target.value = '';
+  document.getElementById('o-skills-tags').innerHTML = state.contributorSkills.map((s,i)=>`<span class="skill-tag">${s} <span class="remove" onclick="removeContribSkill(${i})">×</span></span>`).join('');
+}
+
+function removeContribSkill(i) {
+  state.contributorSkills.splice(i, 1);
+  document.getElementById('o-skills-tags').innerHTML = state.contributorSkills.map((s,i)=>`<span class="skill-tag">${s} <span class="remove" onclick="removeContribSkill(${i})">×</span></span>`).join('');
+}
+
+function simulateUpload(el) {
+  el.classList.add('drag-over');
+  setTimeout(() => {
+    el.classList.remove('drag-over');
+    document.getElementById('upload-status').textContent = '✓ resume.pdf uploaded';
+    document.getElementById('upload-status').style.color = '#00e38b';
+  }, 800);
+}
+
+// ========================
+// NEGOTIATION
+// ========================
+function openNegotiation(contributorId) {
+  const c = state.contributors.find(x=>x.id===contributorId);
+  const openProjects = state.projects.filter(p=>p.status==='open');
+  if(!c) return;
+  document.getElementById('negotiate-content').innerHTML = `
+    <div class="fade-in">
+      <div class="flex items-center justify-between mb-6">
+        <h3 class="font-sora font-bold text-xl">Negotiation Workspace</h3>
+        <button onclick="closeModal('modal-negotiate')" class="text-on-surface-variant hover:text-on-surface"><span class="material-symbols-outlined">close</span></button>
+      </div>
+      <div class="flex items-center gap-4 p-4 bg-surface-container-high rounded-xl mb-6">
+        <div class="w-10 h-10 rounded-lg bg-surface-bright flex items-center justify-center text-xl">${c.avatar}</div>
+        <div>
+          <div class="font-bold">${c.name}</div>
+          <div class="text-xs text-on-surface-variant">${c.role}</div>
+        </div>
+        <div class="ml-auto text-right">
+          <div class="text-primary-fixed-dim font-bold">${c.repScore}/5</div>
+          <div class="text-[10px] font-label-mono text-on-surface-variant">REP SCORE</div>
+        </div>
+      </div>
+      <div class="space-y-4">
+        <div>
+          <label class="text-xs font-label-mono text-on-surface-variant block mb-2">SELECT PROJECT</label>
+          <select id="neg-project" class="forge-input">
+            ${openProjects.length ? openProjects.map(p=>`<option value="${p.id}">${p.title} — ${p.budget}</option>`).join('') : '<option>No open projects</option>'}
+          </select>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="text-xs font-label-mono text-on-surface-variant block mb-2">AGREED BUDGET</label>
+            <input id="neg-budget" type="text" class="forge-input" placeholder="$4,000"/>
+          </div>
+          <div>
+            <label class="text-xs font-label-mono text-on-surface-variant block mb-2">AGREED TIMELINE</label>
+            <input id="neg-timeline" type="text" class="forge-input" placeholder="3 Weeks"/>
+          </div>
+        </div>
+        <div>
+          <label class="text-xs font-label-mono text-on-surface-variant block mb-2">DELIVERABLES NOTE</label>
+          <textarea id="neg-scope" class="forge-input" rows="3" placeholder="Describe what's expected from this contributor..."></textarea>
+        </div>
+      </div>
+      <div class="bg-surface-container-high border border-outline-variant rounded-xl p-4 mt-5 text-xs text-on-surface-variant">
+        <span class="material-symbols-outlined text-primary-fixed-dim text-[14px] align-middle">auto_awesome</span>
+        The agent will auto-generate a project agreement once both parties confirm terms.
+      </div>
+      <div class="flex gap-3 mt-6">
+        <button onclick="submitNegotiation(${c.id})" class="flex-1 bg-primary-fixed-dim text-on-primary py-3 rounded-xl font-bold text-sm">Send Proposal</button>
+        <button onclick="closeModal('modal-negotiate')" class="px-5 py-3 border border-outline-variant rounded-xl text-sm font-bold hover:bg-surface-bright">Cancel</button>
+      </div>
+    </div>
+  `;
+  openModal('modal-negotiate');
+}
+
+function submitNegotiation(contributorId) {
+  const c = state.contributors.find(x=>x.id===contributorId);
+  const budget = document.getElementById('neg-budget').value.trim();
+  const timeline = document.getElementById('neg-timeline').value.trim();
+  const scope = document.getElementById('neg-scope').value.trim();
+  const projectSelect = document.getElementById('neg-project');
+  if(!budget || !timeline || !scope) { showToast('Fill in all negotiation fields.', 'error'); return; }
+  const projectId = parseInt(projectSelect.value);
+  const project = state.projects.find(p=>p.id===projectId);
+  if(project) {
+    project.status = 'active';
+    project.contributor = c.name;
+    project.matchScore = Math.floor(Math.random()*10+88);
+  }
+  addChainEntry(`Agreement Signed: ${c.name} → ${project?.title||'Project'}`, budget+' / '+timeline, 'AGREEMENT', '0x'+randomHex(8));
+  closeModal('modal-negotiate');
+  showToast(`Proposal sent to ${c.name}! Agreement recorded on Mantle.`, 'success');
+  renderProjects();
+}
+
+// ========================
+// DEMO EVALUATION
+// ========================
+function runDemoEvaluation() {
+  const objective = document.getElementById('demo-objective').value.trim();
+  const budget = document.getElementById('demo-budget').value.trim();
+  const skills = [...document.querySelectorAll('#demo-skills .skill-tag')].map(el => el.textContent.replace('×','').trim());
+  if(!objective) { showToast('Describe what you need in the objective field.', 'error'); return; }
+  const statusEl = document.getElementById('agent-status-text');
+  const resultEl = document.getElementById('demo-result');
+  // Animate status
+  const steps = ['Reading project requirements...', 'Scanning contributor profiles...', 'Calculating match scores...', 'Ranking by merit...', 'Generating recommendation...'];
+  let i = 0;
+  const interval = setInterval(() => {
+    if(i < steps.length) { statusEl.textContent = steps[i++]; }
+    else { clearInterval(interval); showEvalResult(resultEl, statusEl, objective, budget, skills); }
+  }, 700);
+  resultEl.innerHTML = `<div class="text-center py-10"><div class="w-8 h-8 border-2 border-primary-fixed-dim border-t-transparent rounded-full spinner mx-auto mb-4"></div><p class="text-sm text-on-surface-variant">Agent is evaluating...</p></div>`;
+}
+
+function showEvalResult(resultEl, statusEl, objective, budget, skills) {
+  const contributor = state.contributors[Math.floor(Math.random()*3)];
+  const score = Math.floor(Math.random()*8+88);
+  statusEl.textContent = 'Evaluation complete.';
+  const reasons = [
+    `${contributor.projectsCompleted} verified projects with similar scope`,
+    `${contributor.completionRate}% on-time delivery across all contracts`,
+    `Strong skill overlap: ${skills.slice(0,2).join(', ')}`,
+    `Reputation score ${contributor.repScore}/5 from DAO stakeholders`
+  ];
+  const hash = '0x' + randomHex(4) + '...' + randomHex(4);
+  resultEl.innerHTML = `
+    <div class="fade-in">
+      <div class="absolute top-0 right-0 bg-primary-fixed-dim text-on-primary font-label-mono text-[10px] px-3 py-1 rounded-bl-lg font-bold">BEST MATCH</div>
+      <div class="flex items-center gap-5 mb-6">
+        <div class="w-14 h-14 rounded-xl bg-surface-bright border border-outline-variant flex items-center justify-center text-2xl">${contributor.avatar}</div>
+        <div>
+          <h3 class="text-xl font-bold mb-1">${contributor.name}</h3>
+          <div class="flex items-center gap-2">
+            <span class="text-primary-fixed-dim text-xl font-sora font-bold">${score}%</span>
+            <span class="text-xs text-on-surface-variant font-label-mono">MATCH SCORE</span>
+          </div>
+        </div>
+      </div>
+      <div class="mb-6">
+        <p class="text-xs font-bold text-on-surface-variant flex items-center gap-2 mb-3">
+          <span class="material-symbols-outlined text-primary-fixed-dim text-sm">info</span> AGENT REASONING:
+        </p>
+        <ul class="space-y-2">
+          ${reasons.map(r=>`<li class="flex gap-3 text-sm"><span class="text-primary-fixed-dim">→</span>${r}</li>`).join('')}
+        </ul>
+      </div>
+      <div class="flex items-center justify-between pt-5 border-t border-outline-variant">
+        <div>
+          <span class="text-[10px] font-label-mono text-on-surface-variant block">MATCH HASH: ${hash}</span>
+          <span class="text-[10px] font-label-mono text-primary-fixed-dim flex items-center gap-1 mt-0.5">
+            <span class="material-symbols-outlined text-[12px]">database</span> Recorded on Mantle
+          </span>
+        </div>
+        <button onclick="openNegotiation(${contributor.id})" class="bg-primary-fixed-dim text-on-primary px-5 py-2.5 rounded-lg font-bold text-sm hover:scale-[1.02] transition-transform">
+          Hire Contributor
+        </button>
+      </div>
+    </div>
+  `;
+  resultEl.className = 'glass-card rounded-2xl p-8 border border-primary-fixed-dim/30 relative overflow-hidden';
+  addChainEntry(`Agent Recommendation: ${contributor.name}`, `Match: ${score}%`, 'RECOMMEND', '0x'+randomHex(8));
+  showToast(`Recommendation logged on Mantle.`, 'success');
+}
+
+function runAgentEval(projectId) {
+  const p = state.projects.find(x=>x.id===projectId);
+  if(!p) return;
+  // Try real Groq evaluator; fall back to demo if server is offline
+  runEvaluator(projectId).catch(() => {
+    showSection('home');
+    document.getElementById('demo-objective').value = p.description;
+    document.getElementById('demo-budget').value = p.budget;
+    const skillsContainer = document.getElementById('demo-skills');
+    skillsContainer.innerHTML = p.skills.map(s=>`<span class="skill-tag">${s} <span class="remove" onclick="removeDemoSkill(this)">×</span></span>`).join('');
+    setTimeout(() => runDemoEvaluation(), 300);
+    window.scrollTo({top:600,behavior:'smooth'});
+  });
+}
+
+// Demo skills helpers
+function addDemoSkill(e) {
+  if(e.key!=='Enter') return;
+  const val = e.target.value.trim();
+  if(!val) return;
+  const tag = document.createElement('span');
+  tag.className = 'skill-tag';
+  tag.innerHTML = `${val} <span class="remove" onclick="removeDemoSkill(this)">×</span>`;
+  document.getElementById('demo-skills').appendChild(tag);
+  e.target.value = '';
+}
+
+function removeDemoSkill(el) { el.parentElement.remove(); }
+
+// ========================
+// HELPERS
+// ========================
+function randomHex(len) {
+  let s=''; const chars='0123456789abcdef';
+  for(let i=0;i<len;i++) s+=chars[Math.floor(Math.random()*chars.length)];
+  return s;
+}
+
+function calcFee(budgetStr) {
+  const n = parseFloat((budgetStr||'0').replace(/[^0-9.]/g,''));
+  return isNaN(n) ? '$0' : '$'+((n*0.02).toFixed(0));
+}
+
+function calcTotal(budgetStr) {
+  const n = parseFloat((budgetStr||'0').replace(/[^0-9.]/g,''));
+  return isNaN(n) ? '$0' : '$'+(n*1.02).toFixed(0);
+}
+
+// ========================
+// LIVE BLOCK COUNTER
+// ========================
+setInterval(() => {
+  const el = document.getElementById('block-height');
+  if(el) { const n = parseInt(el.textContent.replace(/,/g,''))||4821033; el.textContent=(n+1).toLocaleString(); }
+}, 5000);
+
+// Metric counter animation
+function animateCounter(el, target, suffix='') {
+  let current = 0;
+  const step = target / 40;
+  const interval = setInterval(() => {
+    current += step;
+    if(current >= target) { current = target; clearInterval(interval); }
+    el.textContent = Math.floor(current).toLocaleString() + suffix;
+  }, 30);
+}
+
+setTimeout(() => {
+  const accEl = document.getElementById('metric-accuracy');
+  const recEl = document.getElementById('metric-recs');
+  if(accEl) animateCounter(accEl, 94.2, '%');
+  if(recEl) animateCounter(recEl, 2431);
+}, 500);
+
+// ========================
+// INIT
+// ========================
+// Pre-populate chain log
+const initEvents = [
+  { action: 'Talent Registry Initialized', subject: 'Forge AI Protocol', type: 'SYSTEM', hash: '0x'+randomHex(8), block: 4821033 },
+  { action: 'Agent #01 ATLAS Deployed', subject: 'FORGE NETWORK', type: 'AGENT', hash: '0x'+randomHex(8), block: 4821034 },
+  { action: 'Escrow Contract Deployed', subject: '0x'+randomHex(8)+'...'+randomHex(4), type: 'ESCROW', hash: '0x'+randomHex(8), block: 4821035 },
+  { action: 'Agent Recommendation: Kai Okafor', subject: 'Match: 97%', type: 'RECOMMEND', hash: '0x'+randomHex(8), block: 4821036 },
+  { action: 'Milestone Approved: Circuit design', subject: 'ZK Identity Vault', type: 'MILESTONE', hash: '0x'+randomHex(8), block: 4821037 },
+  { action: 'Final Payment Released', subject: 'ZK Identity Vault → Kai Okafor', type: 'PAYMENT', hash: '0x'+randomHex(8), block: 4821038 },
+];
+state.chainLog = initEvents.map(e=>({...e, timestamp: new Date(Date.now()-Math.random()*3600000).toISOString()}));
+
+// Intersection Observer for scroll reveals
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => { if(entry.isIntersecting) { entry.target.classList.add('opacity-100'); entry.target.classList.remove('opacity-0','translate-y-8'); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('section').forEach(s => { s.classList.add('transition-all','duration-700','ease-out'); observer.observe(s); });
+</script>
+</body>
+</html>
