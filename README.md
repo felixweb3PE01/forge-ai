@@ -1,58 +1,129 @@
-# Forge AI — Backend Setup
+# Forge AI 🔥
 
-## Quick Start
+> **The Operating System for Autonomous Hiring on Mantle**
 
-### 1. Get a FREE Groq API key
-Go to https://console.groq.com → sign up → create an API key (free tier, no credit card)
+Forge AI is a RealClaw-powered talent orchestration network that autonomously discovers, evaluates, negotiates with, and manages contributors while securing payments, reputation, and agent accountability on Mantle.
 
-### 2. Set your API key
+**Live Demo:** https://forgenetwork.vercel.app
+
+---
+
+## Architecture
+
+```
+Frontend (HTML/JS/Tailwind)
+    ↓
+Vercel Serverless API
+    ↓
+Groq AI (llama-3.3-70b-versatile)  ←→  Mantle Smart Contracts
+```
+
+---
+
+## 5 Agent Roles
+
+| Agent | Role |
+|-------|------|
+| **ATLAS** (Evaluator) | Scores & ranks contributors against project requirements |
+| **VECTOR** (Negotiator) | Generates structured agreements between parties |
+| **NEXUS** (Verifier) | Reviews milestone submissions, triggers escrow release |
+| **ORACLE** (Reputation Manager) | Updates rep scores for contributors, clients, and agents on-chain |
+| **FORGE-AGENT-001** (Orchestrator) | Routes free-form commands to the right sub-agent |
+
+---
+
+## Smart Contracts (Mantle Sepolia Testnet)
+
+| Contract | Address |
+|----------|---------|
+| TalentRegistry | `0x870DcC88a1dCafca357D0635b77F07Df900CbeE9` |
+| DecisionLog | `0x312320C074B4d5423334E468b834B559435d86a3` |
+| EscrowContract | `0x651e333813c88357194319C404eE5B7D0A7D81B8` |
+| ReputationContract | `0x185C130B3559C8b33492003378BD33b1c234c466` |
+| AgentRegistry | `0xBE61Fbd302417ecfD27AAfe340D1Ee339b28c039` |
+
+---
+
+## Tech Stack
+
+- **Frontend:** HTML, Tailwind CSS, Vanilla JS
+- **AI Agent:** Groq API (llama-3.3-70b-versatile) — free tier
+- **Backend:** Vercel Serverless Functions (Node.js ESM)
+- **Blockchain:** Mantle Sepolia Testnet
+- **Smart Contracts:** Solidity 0.8.20, Hardhat
+- **Wallet:** MetaMask, WalletConnect, Coinbase Wallet
+
+---
+
+## Local Setup
+
+### Prerequisites
+- Node.js v18+
+- MetaMask wallet
+- Free Groq API key from [console.groq.com](https://console.groq.com)
+
+### Run locally
+
 ```bash
+# Clone repo
+git clone https://github.com/YOUR_USERNAME/forge-ai
+cd forge-ai
+
+# Install dependencies
+npm install
+
+# Configure environment
 cp .env.example .env
-# Edit .env and paste your GROQ_API_KEY
-```
+# Add your GROQ_API_KEY and DEPLOYER_PRIVATE_KEY to .env
 
-### 3. Start the server
-```bash
+# Start agent server
 node server.js
+
+# Open public/index.html in browser
 ```
-Server runs on http://localhost:3001
 
-### 4. Open the frontend
-Open `ph.html` in your browser.
-The **AGENT** button in the nav opens the agent command bar.
-The **Run Agent Evaluation** button on any open project calls the real Groq evaluator.
+### Deploy to Vercel
 
----
+```bash
+npm install -g vercel
+vercel --prod
+```
 
-## Agent Endpoints
-
-| Method | Route | Agent Role |
-|--------|-------|------------|
-| POST | `/agent/evaluate` | Evaluator — score & rank contributors |
-| POST | `/agent/negotiate` | Negotiator — generate agreement |
-| POST | `/agent/verify` | Verifier — approve/reject milestone |
-| POST | `/agent/reputation` | Reputation Manager — update all parties |
-| POST | `/agent/orchestrate` | Orchestrator — free-form commands |
-| GET  | `/health` | Server + contract status |
+Add environment variables on Vercel dashboard:
+- `GROQ_API_KEY`
+- `DEPLOYER_PRIVATE_KEY`
+- `MANTLE_RPC`
+- `TALENT_REGISTRY_ADDRESS`
+- `DECISION_LOG_ADDRESS`
+- `ESCROW_ADDRESS`
+- `REPUTATION_ADDRESS`
+- `AGENT_REGISTRY_ADDRESS`
 
 ---
 
-## When you deploy Mantle contracts
+## Deploy Contracts
 
-Edit `contracts/mock.js` — fill in the `CONTRACT_ADDRESSES` object and replace each mock function body with a real `ethers.js` call.
-
-```js
-// contracts/mock.js
-const CONTRACT_ADDRESSES = {
-  talentRegistry: '0xYOUR_ADDRESS',
-  decisionLog:    '0xYOUR_ADDRESS',
-  escrow:         '0xYOUR_ADDRESS',
-  reputation:     '0xYOUR_ADDRESS',
-  agentRegistry:  '0xYOUR_ADDRESS',
-};
+```bash
+npm install --save-dev hardhat @nomicfoundation/hardhat-toolbox
+npx hardhat run scripts/deploy.mjs --network mantle_testnet
 ```
 
 ---
 
-## Model
-`llama-3.3-70b-versatile` via Groq — free tier, ~200ms response time
+## User Flow
+
+1. **Connect Wallet** → Choose role (Founder or Contributor) — one wallet, one role
+2. **Founder** → Post project with skills, budget, milestones
+3. **Agent Evaluates** → ATLAS scores all contributors, logs decision hash to Mantle
+4. **Negotiate** → VECTOR generates structured agreement
+5. **Escrow** → Client locks MNT, funds held until milestones approved
+6. **Verify** → NEXUS reviews submissions, releases payment on approval
+7. **Reputation** → ORACLE updates all parties on-chain, including agent rep
+
+---
+
+## Track
+
+**Agentic Economy Track — RealClaw Real-Life Expansion**
+
+Forge AI takes RealClaw beyond DeFi into a real-world hiring ecosystem, creating verifiable AI reputation and autonomous talent management on Mantle.
